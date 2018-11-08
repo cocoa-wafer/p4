@@ -1,8 +1,25 @@
 <?php 
 
-abstract Class {
+abstract class Manager {
     
+  private $_db; 
+
+
+  public function __construct($db)
+
+  {
+
+    $this->setDb($db);
+
+  }
+    
+    public function setDb(PDO $db)
+
+  {
+
+    $this->_db = $db;
+
+  }
 }
 
-
-// gere accès base de données et les requêtes 
+//gere connexion base de donnees 

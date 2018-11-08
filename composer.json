@@ -1,3 +1,9 @@
-// tinyMce
-// twig (regarder la syntaxe)
-// bootstrap
+{
+
+  "require": {
+
+    "twig/twig": "~2.0"
+
+  }
+
+}
