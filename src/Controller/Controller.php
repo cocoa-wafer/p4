@@ -2,11 +2,11 @@
 
 abstract class Controller {
     
-    function requireManager($nomManager) {
+    public function requireManager($nomManager) {
         return require $nomManager.'Manager.php' ;
     }
     
-    function requireView($nomVue) {
+    public function requireView($nomVue) {
         return require $nomVue.'View.php';
     }
     
