@@ -14,6 +14,3 @@ $loader = new Twig_Loader_Array(array(
 $twig = new Twig_Environment($loader);
 
 echo $twig->render('index', array('name' => 'Fabien'));
-
-
-// $db = new PDO()

@@ -2,10 +2,10 @@
 
 abstract class Manager {
     
-  private $_db; 
+  protected $_db; 
 
 
-  public function __construct($db)
+  public function __construct()
 
   {
 
@@ -13,7 +13,7 @@ abstract class Manager {
 
   }
     
-    public function setDb(PDO $db)
+    public function setDb(/PDO $db)
 
   {
 
