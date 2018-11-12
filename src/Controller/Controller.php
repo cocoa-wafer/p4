@@ -2,13 +2,7 @@
 
 abstract class Controller {
     
-    public function requireManager($nomManager) {
-        return require $nomManager.'Manager.php' ;
-    }
-    
-    public function requireView($nomVue) {
-        return require $nomVue.'View.php';
-    }
+//déclarer twig pour réutiliser partout ailleurs
     
     
     

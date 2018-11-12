@@ -9,17 +9,22 @@ abstract class Manager {
 
   {
 
-    $this->setDb($db);
+    $this->setDb();
 
   }
     
-    public function setDb(/PDO $db)
+    public function setDb()
 
   {
+      try {
+             $this->_db = new PDO('mysql:host=localhost;dbname=p4', 'root', ''); 
+          echo 'connexion réussie';
+      }
+      
+      catch (Exception $e) {
+          echo 'erreur'. $e->getMessage();
+      }
 
-    $this->_db = $db;
 
   }
 }
-
-//gere connexion base de donnees 
