@@ -1,6 +1,6 @@
 <?php 
 
-require 'Manager.php';
+require_once 'Manager.php';
 
 class PostManager extends Manager {
     
@@ -39,10 +39,17 @@ class PostManager extends Manager {
       
       try{
           $q = $this->_db->query('SELECT * FROM posts WHERE id='.$id);
-          $donnees = $q->fetch()
+          $donnees = $q->fetch();
         return new Post($donnees);
     
   }    
+      
+        catch (Exception $e) {
+          echo 'Erreur' . $e->getMessage();
+      }
+      
+    }
+  
       
   public function getPostsList() { 
       $posts = [];

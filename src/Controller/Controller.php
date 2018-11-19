@@ -1,18 +1,21 @@
 <?php 
+require_once '../Model/CommentManager.php';
+require_once '../Model/PostManager.php';
+require_once '../Model/AdminManager.php';
 
-abstract class Controller {
+ class Controller {
     
 //déclarer twig pour réutiliser partout ailleurs
     
-    private $_postManager;
-    private $_commentManager;
-    private $_adminManager;
+    protected $_postManager;
+    protected $_commentManager;
+    protected $_adminManager;
     
     function __construct() {
         
-        $postManager = new postManager();
-        $commentManager = new commentManager();
-        $adminManager = new adminManager();
+        $this->_postManager = new PostManager();
+        $this->_commentManager = new CommentManager();
+        $this->_adminManager = new AdminManager();
     }
     
     

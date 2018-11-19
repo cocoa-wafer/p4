@@ -5,8 +5,8 @@
 // 1 branch pour twig 
 
 
-require 'PostManager.php';
-require 'Post.php';
+require_once 'PostManager.php';
+require_once 'Post.php';
 
 class  PostController extends Controller {
     

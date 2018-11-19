@@ -9,7 +9,7 @@ class Comment {
     private $_comment_date;
     
     function __construct(array $donnees) {
-        $this->hydrate($donnees)
+        $this->hydrate($donnees);
         
     }
     
@@ -49,12 +49,15 @@ class Comment {
         }
     }        
     
-    function setDate($date) {}
+    function setDate($date) {
+        $this->_comment_date=$date;
+    }
 
     
-    function id() { return $this->_id}
-    function author() { return $this->_author}
-    function comment() { return $this->_comment}
-    function commentdate() { return $this->_comment_date}    
+    function id() { return $this->_id;}
+    function postId() { return $this->_postId;}
+    function author() { return $this->_author;}
+    function comment() { return $this->_comment;}
+    function commentdate() { return $this->_comment_date;}    
     
 }
