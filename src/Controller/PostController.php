@@ -16,31 +16,31 @@ class  PostController extends Controller {
         'post' => $post
     ]);
       
-    $postManager = new PostManager ; 
-    $postManager->addPost($post);
+
+    $_postManager->addPost($post);
     // render twig ici render view avant ajout mais avec celui en plus
-    // issue: comment récup les infos précédentes pour les render ?
+    // issue: comment récup les infos précédentes pour les render ? session infos ?
   }    
   public function deletePost($id) { 
-    $postManager = new PostManager;
-    $postManager->deletePost($id);
+
+    $_postManager->deletePost($id);
       
     // render view twig même que avant click sup mais sans le post en question 
-    // issue : comment recup donnees utilisees dans le twig precedent ?
+    // issue : comment recup donnees utilisees dans le twig precedent ? session infos ?
   }    
   public function getPost($id) { 
-    $postManager = new PostManager;
-    $postManager->getPost($id);
+
+    $_postManager->getPost($id);
     // render view twig avec tableau constitué des valeurs setters de getPost
   }    
   public function getPostsList() { 
-    $postManager = new PostManager;
-    $postManager->getPostsList();
+
+    $_postManager->getPostsList();
     // twig en utilsiant tableau d'objets post
   }    
   public function updatePost($id, $post) { 
-    $postManager = new PostManager;
-    $postManager->updatePost($id,$post);
+
+    $_postManager->updatePost($id,$post);
     // render view du post modifié, en réutilisant l'id envoyée en paramètres.
   }       
     
