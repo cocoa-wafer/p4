@@ -42,8 +42,10 @@ class  CommentController extends Controller {
     // render view du post modifié, en réutilisant l'id envoyée en paramètres.
   }       
     
-    public function signalComment($id) {
-        $this->commentManager->signalComment($id);
-    }
     
 }
+
+
+
+
+

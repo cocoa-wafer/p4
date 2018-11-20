@@ -10,7 +10,7 @@ require_once '../Model/AdminManager.php';
     protected $postManager;
     protected $commentManager;
     protected $adminManager;
-    
+
     function __construct() {
         
         $this->postManager = new PostManager();
@@ -22,6 +22,6 @@ require_once '../Model/AdminManager.php';
 }
 
 
-//ajouter des conditions pour pas que trois connexion simultanées.. sélectionner un des manager au lieu de lancer les trois à instanciation. 
+
 // recupere le modele necessaire puis affiche la vue correspondante
 // verifie que les infos récupérées sont valides ? (try / catch)

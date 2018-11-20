@@ -22,7 +22,6 @@ class  PostController extends Controller {
     // render twig ici render view avant ajout mais avec celui en plus
     // issue: comment récup les infos précédentes pour les render ? session infos ?
   }    
-    
   public function deletePost($id) { 
 
     $this->postManager->deletePost($id);
@@ -43,7 +42,7 @@ class  PostController extends Controller {
   public function updatePost($id, $post) { 
 
     $this->postManager->updatePost($id,$post);
-    // render view du post modifié, en réutilisant l'id envoyée en paramètres.
+    // rendr view du post modifié, en réutilisant l'id envoyée en paramètres.
   }       
     
 }

@@ -8,7 +8,9 @@ class Post {
     private $post_date;
     
     function __construct(array $donnees) {
-        $this->hydrate($donnees);
+        try{        $this->hydrate($donnees);}
+
+        catch (Exception $e) {'impossible de créer lobjet';}
         
     }
     

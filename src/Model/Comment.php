@@ -2,11 +2,11 @@
 
 class Comment {
     
-    private $id;
-    private $postId;
-    private $author;
-    private $comment;
-    private $comment_date;
+    private $_id;
+    private $_postId;
+    private $_author;
+    private $_comment;
+    private $_comment_date;
     
     function __construct(array $donnees) {
         $this->hydrate($donnees);
@@ -26,38 +26,38 @@ class Comment {
     function setId($id) {
         $id = (int)$id;
         if ($id >0) {
-            $this->id = $id;
+            $this->_id = $id;
         }
     }
     
     function setPostId($postId) {
         $postId = (int)$postId;
         if ($postId >0) {
-            $this->postId = $postId;
+            $this->_postId = $postId;
         }
     }    
     
     function setAuthor($author) {
         if(is_string($author)) {
-            $this->author = $author;
+            $this->_author = $author;
         }
     }
     
     function setComment($comment) {
         if(is_string($comment)) {
-            $this->comment = $comment;
+            $this->_comment = $comment;
         }
     }        
     
     function setDate($date) {
-        $this->comment_date=$date;
+        $this->_comment_date=$date;
     }
 
     
-    function getId() { return $this->id;}
-    function getPostId() { return $this->postId;}
-    function getAuthor() { return $this->author;}
-    function getComment() { return $this->comment;}
-    function getCommentdate() { return $this->comment_date;}    
+    function getId() { return $this->_id;}
+    function getPostId() { return $this->_postId;}
+    function getAuthor() { return $this->_author;}
+    function getComment() { return $this->_comment;}
+    function getCommentdate() { return $this->_comment_date;}    
     
 }
