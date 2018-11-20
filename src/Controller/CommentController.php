@@ -36,16 +36,6 @@ class  CommentController extends Controller {
     $this->commentManager->getListComments();
     // twig en utilsiant tableau d'objets post
   }    
-  public function updateComment($id, $comment) { 
-
-    $this->commentManager->updateComment($id,$comment);
-    // render view du post modifié, en réutilisant l'id envoyée en paramètres.
-  }       
     
     
 }
-
-
-
-
-

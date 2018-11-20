@@ -9,7 +9,7 @@ class CommentManager extends Manager {
     
   public function createComment(Comment $comment) { 
       
-    $array =(array('post_id' => $comment->postId(),'author'=>$comment->author(),'comment' => $comment->comment()));   
+    $array =(array('post_id' => $comment->getPostId(),'author'=>$comment->getAuthor(),'comment' => $comment->getComment()));   
     $this->insert('INSERT INTO comments(post_id, author,comment,comment_date) VALUES(:post_id,:author,:comment,NOW())',$array);
 
   }    
@@ -23,12 +23,12 @@ class CommentManager extends Manager {
       
       
     $array =(array('id'=>$id));
-    $result =  $this->get('SELECT * FROM comments WHERE id=:id',$array,'Comment');
+    return $this->get('SELECT * FROM comments WHERE id=:id',$array,'Comment');
     
   }    
   public function getListComments() { 
       
-    $comments = $this->getList('SELECT * FROM comments ORDER BY id','Comment');
+    return $this->getList('SELECT * FROM comments ORDER BY id','Comment');
       
   }    
     

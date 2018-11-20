@@ -33,7 +33,7 @@ abstract class Manager {
         try{
         $q = $this->_db->prepare($query);
         $q->execute($array);
-        echo 'success';
+        echo 'success insert';
         }
       catch (Exception $e) {
           'erreur'.$e->getMessage();
@@ -50,6 +50,7 @@ abstract class Manager {
             $donnees = $q->fetch();
             echo "get réussi";
             return new $type($donnees);
+            
         }
         
         catch (Exception $e) {
