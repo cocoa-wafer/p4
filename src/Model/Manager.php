@@ -67,10 +67,10 @@ abstract class Manager {
             while ($donnees = $q->fetch())
           {
 
-              $posts[] = new $type($donnees);
+              $tableau[] = new $type($donnees);
           }
 
-          return $posts;
+          return $tableau;
             
         } 
         catch (Exception $e) {
