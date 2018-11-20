@@ -7,21 +7,21 @@ require_once '../Model/AdminManager.php';
     
 //déclarer twig pour réutiliser partout ailleurs
     
-    protected $_postManager;
-    protected $_commentManager;
-    protected $_adminManager;
+    protected $postManager;
+    protected $commentManager;
+    protected $adminManager;
     
     function __construct() {
         
-        $this->_postManager = new PostManager();
-        $this->_commentManager = new CommentManager();
-        $this->_adminManager = new AdminManager();
+        $this->postManager = new PostManager();
+        $this->commentManager = new CommentManager();
+        $this->adminManager = new AdminManager();
     }
     
     
 }
 
 
-
+//ajouter des conditions pour pas que trois connexion simultanées.. sélectionner un des manager au lieu de lancer les trois à instanciation. 
 // recupere le modele necessaire puis affiche la vue correspondante
 // verifie que les infos récupérées sont valides ? (try / catch)

@@ -8,7 +8,7 @@ class Post {
     private $post_date;
     
     function __construct(array $donnees) {
-        $this->hydrate($donnees)
+        $this->hydrate($donnees);
         
     }
     
@@ -41,13 +41,15 @@ class Post {
         }
     }        
     
-    function setDate($date) {}
+    function setDate($date) {
+        $this->post_date = $date;
+    }
 
     
-    function getId() { return $this->id}
-    function getAuthor() { return $this->author}
-    function getPost() { return $this->post}
-    function getPostdate() { return $this->post_date}
+    function getId() { return $this->id;}
+    function getAuthor() { return $this->author;}
+    function getPost() { return $this->post;}
+    function getPostdate() { return $this->post_date;}
     
     
 }
