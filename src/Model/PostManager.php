@@ -1,7 +1,7 @@
 <?php 
 
 require_once 'Manager.php';
-require_once 'Comment.php';
+require_once 'Post.php';
 
 class PostManager extends Manager {
     
@@ -10,16 +10,16 @@ class PostManager extends Manager {
       
       try {
         
-          $q=$this->_db->prepare('INSERT INTO posts(author,post,post_date) VALUES(?,?,NOW())');
+          $q=$this->_db->prepare('INSERT INTO posts(author,post,post_date) VALUES(:author,:post,NOW())');
           $q->execute(array(
-          'author'=>$post->author(),
-          'post'=>$post->post()
+          'author'=>$post->getAuthor(),
+          'post'=>$post->getPost(),
       ));
           echo 'entrée ajoutée';
         
       }
       catch (Exception $e) {
-          'erreur'.$e->getMessage();
+          'erreur'.$e->getMessage(); 
       }
 
   } 
@@ -75,6 +75,7 @@ class PostManager extends Manager {
       
       
   public function updatePost($id, $post_content) { 
+      
       try{
           $q = $this->_db->prepare('UPDATE posts SET post =:post_content WHERE ID ='.$id);
           $q->execute(array(
@@ -90,7 +91,6 @@ class PostManager extends Manager {
   }    
     
 }
-
 
 
     
