@@ -2,23 +2,27 @@
 
 namespace Blog;
 
-// routeur 
-
-// session start puis les autoload de composer 
-
 //session start
+
+//autoload composer
 require 'vendor/autoload.php' ;
 
-//transformer les require en namespace
-require 'PostController';
-require 'CommentController';
-require 'AdminController';
+
+/* require 'src/Controller/PostController.php';
+require 'src/Controller/CommentController.php';
+require 'src/Controller/AdminController.php'; */
+
+
+
+
+
+
 
 //test twig.
-$loader = new Twig_Loader_Array(array(
+$loader = new \Twig_Loader_Array(array(
     'index' => 'Hello {{ name }}!',
 ));
-$twig = new Twig_Environment($loader);
+$twig = new \Twig_Environment($loader);
 
 echo $twig->render('index', array('name' => 'Fabien'));
 

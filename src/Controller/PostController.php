@@ -6,7 +6,7 @@
 
 namespace Blog\Controller;
 
-require_once '../Model/PostManager.php';
+require_once 'PostManager.php';
 require_once '../Model/Post.php';
 require_once 'Controller.php';
 
