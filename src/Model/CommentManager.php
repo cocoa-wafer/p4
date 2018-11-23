@@ -32,4 +32,11 @@ class CommentManager extends Manager {
       
   }    
     
+  public function signalComment($id) { 
+
+    $array=(array('id'=>$id));
+    $this->insert('UPDATE comments SET attente_moderation =TRUE WHERE ID =:id',$array);
+
+  } 
+    
 }
