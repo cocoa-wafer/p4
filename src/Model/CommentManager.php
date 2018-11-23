@@ -39,4 +39,11 @@ class CommentManager extends Manager {
 
   } 
     
+    public function acceptComment($id) {
+        
+    $array=(array('id'=>$id));
+    $this->insert('UPDATE comments SET attente_moderation =FALSE WHERE ID =:id',$array);
+        
+    }
+    
 }
