@@ -1,5 +1,7 @@
 <?php 
 
+namespace Blog\Model;
+
 abstract class Manager {
     
   protected $_db; 

@@ -1,8 +1,12 @@
 <?php 
 
+namespace Blog\Controller;
+
 require_once '../Model/CommentManager.php';
 require_once '../Model/Comment.php';
 require_once 'Controller.php';
+
+use Blog\Model\Comment as Comment;
 
 class  CommentController extends Controller {
     

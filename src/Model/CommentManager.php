@@ -1,7 +1,8 @@
 <?php 
-//require Comment
-    require_once 'Manager.php';
-    require_once 'Comment.php';
+
+namespace Blog\Model;
+
+require_once 'Manager.php';
 
 class CommentManager extends Manager {
     

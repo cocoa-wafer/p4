@@ -1,5 +1,7 @@
 <?php 
 
+namespace Blog\Model;
+
 class Admin {
     
     private $id;

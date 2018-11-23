@@ -4,10 +4,13 @@
 // rempalcer require par nametags
 // 1 branch pour twig 
 
+namespace Blog\Controller;
 
 require_once '../Model/PostManager.php';
 require_once '../Model/Post.php';
 require_once 'Controller.php';
+
+use Blog\Model\Post as Post;
 
 class  PostController extends Controller {
     

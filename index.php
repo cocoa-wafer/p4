@@ -1,5 +1,7 @@
 <?php 
 
+namespace Blog\index;
+
 // routeur 
 
 // session start puis les autoload de composer 
@@ -7,7 +9,7 @@
 //session start
 require 'vendor/autoload.php' ;
 
-//transformer les require en nametags
+//transformer les require en namespace
 require 'PostController';
 require 'CommentController';
 require 'AdminController';
