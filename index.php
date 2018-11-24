@@ -8,9 +8,9 @@ namespace Blog;
 require 'vendor/autoload.php' ;
 
 
-/* require 'src/Controller/PostController.php';
+ require 'src/Controller/PostController.php';
 require 'src/Controller/CommentController.php';
-require 'src/Controller/AdminController.php'; */
+require 'src/Controller/AdminController.php'; 
 
 
 
