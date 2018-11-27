@@ -2,7 +2,7 @@
 
 namespace Blog\Model;
 
-require_once 'Manager.php';
+use Blog\Model\Manager;
 
 class PostManager extends Manager {
     
@@ -43,7 +43,5 @@ class PostManager extends Manager {
   }    
     
 }
-
-
 
     

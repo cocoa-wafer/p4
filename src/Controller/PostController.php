@@ -6,11 +6,13 @@
 
 namespace Blog\Controller;
 
-require_once 'PostManager.php';
+/* require_once 'PostManager.php';
 require_once '../Model/Post.php';
-require_once 'Controller.php';
+require_once 'Controller.php'; */
 
-use Blog\Model\Post as Post;
+use Blog\Model\Post;
+use Blog\Model\PostManager;
+use Blog\Controller\Controller;
 
 class  PostController extends Controller {
     

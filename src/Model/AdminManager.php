@@ -2,7 +2,9 @@
 
 namespace Blog\Model;
 
-require_once 'Manager.php';
+// require_once 'Manager.php';
+
+use Blog\Model\Manager;
 
 class AdminManager extends Manager {
     

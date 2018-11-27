@@ -2,14 +2,14 @@
 
 namespace Blog\Controller;
     
-require_once '../Model/CommentManager.php';
+/* require_once '../Model/CommentManager.php';
 require_once '../Model/PostManager.php';
-require_once '../Model/AdminManager.php';
+require_once '../Model/AdminManager.php'; */
 
 
-use Blog\Model\CommentManager as CommentManager;
-use Blog\Model\PostManager as PostManager;
-use Blog\Model\AdminManager as AdminManager;
+use Blog\Model\CommentManager ;
+use Blog\Model\PostManager ;
+use Blog\Model\AdminManager;
 
  class Controller {
     

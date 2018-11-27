@@ -19,7 +19,7 @@ abstract class Manager {
 
   {
       try {
-             $this->_db = new PDO('mysql:host=localhost;dbname=p4', 'root', ''); 
+             $this->_db = new \PDO('mysql:host=localhost;dbname=p4', 'root', ''); 
           echo 'connexion réussie';
       }
       
@@ -51,7 +51,7 @@ abstract class Manager {
             $q ->execute($array);
             $donnees = $q->fetch();
             echo "get réussi";
-            return new $type($donnees);
+            return new Post($donnees);
             
         }
         

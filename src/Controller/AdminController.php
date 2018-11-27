@@ -2,11 +2,13 @@
 
 namespace Blog\Controller;
 
-require_once '../Model/AdminManager.php';
+/* require_once '../Model/AdminManager.php';
 require_once '../Model/Admin.php';
-require_once 'Controller.php';
+require_once 'Controller.php'; */
 
-use Blog\Model\Admin as Admin;
+use Blog\Model\Admin ;
+use Blog\Model\AdminManager ;
+use Blog\Controller\Controller ;
 
 class  AdminController extends Controller {
     
