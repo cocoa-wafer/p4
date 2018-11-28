@@ -1,14 +1,13 @@
 <?php 
 
-// routeur 
-
-// session start puis les autoload de composer 
+namespace Blog;
 
 //session start
 require 'vendor/autoload.php' ;
 
+
 //transformer les require en nametags
-/* require 'PostController';
+ /*require 'PostController';
 require 'CommentController';
 require 'AdminController'; */
 
@@ -19,8 +18,6 @@ require 'AdminController'; */
 $twig = new Twig_Environment($loader);
 
 echo $twig->render('index', array('name' => 'Fabien')); */
-
-// recup donnees qui transitent, les tester pour validité (les échapper ici ?) puis lancer controller adéquat.
 
 
 $page = 'home';
