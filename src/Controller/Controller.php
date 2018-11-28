@@ -1,10 +1,6 @@
 <?php 
 
 namespace Blog\Controller;
-    
-/* require_once '../Model/CommentManager.php';
-require_once '../Model/PostManager.php';
-require_once '../Model/AdminManager.php'; */
 
 
 use Blog\Model\CommentManager ;
@@ -28,8 +24,3 @@ use Blog\Model\AdminManager;
     
     
 }
-
-
-
-// recupere le modele necessaire puis affiche la vue correspondante
-// verifie que les infos récupérées sont valides ? (try / catch)
