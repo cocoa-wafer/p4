@@ -1,12 +1,13 @@
 <?php 
+namespace Blog\Model;
 
 class Comment {
     
-    private $_id;
-    private $_postId;
-    private $_author;
-    private $_comment;
-    private $_comment_date;
+    private $id;
+    private $postId;
+    private $author;
+    private $comment;
+    private $comment_date;
     
     function __construct(array $donnees) {
         $this->hydrate($donnees);
@@ -26,38 +27,37 @@ class Comment {
     function setId($id) {
         $id = (int)$id;
         if ($id >0) {
-            $this->_id = $id;
+            $this->id = $id;
         }
     }
     
     function setPostId($postId) {
         $postId = (int)$postId;
         if ($postId >0) {
-            $this->_postId = $postId;
+            $this->postId = $postId;
         }
     }    
     
     function setAuthor($author) {
         if(is_string($author)) {
-            $this->_author = $author;
+            $this->author = $author;
         }
     }
     
     function setComment($comment) {
         if(is_string($comment)) {
-            $this->_comment = $comment;
+            $this->comment = $comment;
         }
     }        
     
     function setDate($date) {
-        $this->_comment_date=$date;
+        $this->comment_date=$date;
     }
-
     
-    function id() { return $this->_id;}
-    function postId() { return $this->_postId;}
-    function author() { return $this->_author;}
-    function comment() { return $this->_comment;}
-    function commentdate() { return $this->_comment_date;}    
+    function getId() { return $this->id;}
+    function getPostId() { return $this->postId;}
+    function getAuthor() { return $this->author;}
+    function getComment() { return $this->comment;}
+    function getCommentdate() { return $this->comment_date;}    
     
 }
