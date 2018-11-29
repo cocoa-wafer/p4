@@ -2,11 +2,20 @@
 
 namespace Blog\Model;
 
+use Blog\Model\Admin;
+use Blog\Model\Post;
+use Blog\Model\Comment;
+
 abstract class Manager {
     
-  protected $_db; 
+    protected $_db; 
+    
+   /* const POST = new Post();
+    const COMMENT = new Comment();
+    const ADMIN = new Admin(); */
     
   public function __construct()
+      
   {
     $this->setDb();
   }
@@ -43,7 +52,7 @@ abstract class Manager {
             $q ->execute($array);
             $donnees = $q->fetch();
             echo "get réussi";
-            return new Post($donnees);
+            return new $type($donnees);
             
         }
         
@@ -54,12 +63,13 @@ abstract class Manager {
     }
     //retourne une liste d'objets
     public function getList($query,$type) {
+
         try {
             $q = $this->_db->prepare($query);
             $q ->execute();
             while ($donnees = $q->fetch())
           {
-              $tableau[] = new $type($donnees);
+              $tableau[] = new Post($donnees);
           }
           return $tableau;
             

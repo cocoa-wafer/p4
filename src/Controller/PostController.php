@@ -29,12 +29,18 @@ class  PostController extends Controller {
     // render view twig avec tableau constitué des valeurs setters de getPost
   }    
   public function getPostsList() { 
-    $this->postManager->getPostsList();
+    return $this->postManager->getPostsList();
     // twig en utilsiant tableau d'objets post
   }    
   public function updatePost($id, $post) { 
     $this->postManager->updatePost($id,$post);
     // rendr view du post modifié, en réutilisant l'id envoyée en paramètres.
-  }       
+  }   
+    
+public function Test() {
+    $tableau = ["a"=>"b",
+                "c"=>"d"];
+    return $tableau;
+}
     
 }
