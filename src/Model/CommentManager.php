@@ -14,7 +14,7 @@ class CommentManager extends Manager {
   public function deleteComment($id) {
       
     $array=(array('id'=>$id));
-    $this->insert('DELETE FROM comments WHERE id =:id',$array);
+   return  $this->insert('DELETE FROM comments WHERE id =:id',$array);
   
   }    
   public function getComment($id) {
@@ -32,13 +32,13 @@ class CommentManager extends Manager {
     
   public function signalComment($id) { 
     $array=(array('id'=>$id));
-    $this->insert('UPDATE comments SET attente_moderation =TRUE WHERE ID =:id',$array);
+   return $this->insert('UPDATE comments SET attente_moderation =TRUE WHERE ID =:id',$array);
   } 
     
     public function acceptComment($id) {
         
     $array=(array('id'=>$id));
-    $this->insert('UPDATE comments SET attente_moderation =FALSE WHERE ID =:id',$array);
+   return $this->insert('UPDATE comments SET attente_moderation =FALSE WHERE ID =:id',$array);
         
     }
     

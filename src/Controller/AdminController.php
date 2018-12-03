@@ -4,47 +4,59 @@ namespace Blog\Controller;
 
 use Blog\Model\Admin ;
 use Blog\Model\AdminManager ;
-use Blog\Controller\Controller ;
-use Blog\Controller\CommentController ;
-use Blog\Controller\PostController ;
+use Blog\Model\CommentManager ;
+use Blog\Model\PostManager ;
+use Blog\Model\Post ;
 
 class  AdminController extends Controller {
     
-    protected $postController;
-    protected $commentController;
+    protected $postManager;
+    protected $commentManager;
+    protected $adminManager;
     
     function __construct() {
-        $this->postController = new PostController();
-        $this->commentController = new CommentController();
+        
+        //récup constructeur parent pour twig puis execute code en dessous sans écraser le twig du coup.
+        parent::__construct(); 
+        
+        $this->postManager = new PostManager();
+        $this->commentManager = new CommentManager();
+        $this->adminManager = new AdminManager();
     }
     
   public function getAdmin($login) { 
-        $this->adminManager->getAdmin($login);
+     return   $this->adminManager->getAdmin($login);
     // render view twig avec tableau constitué des valeurs setters de getPost
   }    
     public function addPost($author,$post) {
+        $post = new Post([
+        'author' => $author,
+        'post' => $post
+        ]);
         
-        $this->postController->addPost($author,$post);
+      return  $this->postManager->addPost($post);
     }
+        
     public function deletePost($id) {
         
-        $this->postController->deletePost($id);
+        // utiliser le manager plutot que new controller 
+      return  $this->postManager->deletePost($id);
     }
     public function updatePost($id,$post) {
-        $this->postController->updatePost($id,$post);
+      return   $this->postManager->updatePost($id,$post);
     }
     public function getPost($id) {
-        $this->postController->getPost($id);
+      return  $this->postManager->getPost($id);
     }
     public function getPostsList() {
-        $this->postController->getPostsList();
+       return $this->postManager->getPostsList();
     }
     public function deleteComment($id) {
-        $this->commentController->deleteComment($id);
+       return $this->commentManager->deleteComment($id);
     }
     
     public function acceptComment($id) {
-        $this->commentController->acceptComment($id);
+       return $this->commentManager->acceptComment($id);
     }
     
     public function getModerationList() {

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href=/>{# mettre le loen vers le css de bootstrap#}
+        <link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
         <title> {%block title%} {%endblock%}</title>
     </head>
     
@@ -11,14 +11,18 @@
         {% block entete %}
         <h1>Blog de l'écrivain</h1>
         <p>La bannière ici</p>
+        <button type="button" class="btn btn-primary">Primary</button>
+        
+        
+
         
         {% endblock %}
         {%block content%} {%endblock%}
         
         <footer>
-            <p>Copyright @Jean Bernard. Voir les mentions légales</p>
+            <p>Copyright @Jean Jean. Voir les mentions légales</p>
         </footer>
         
-        <script src=""></script> {#mettre ici le loen vers le bootstrap js#}
+        <script src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script> 
     </body>
 </html>

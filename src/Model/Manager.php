@@ -50,9 +50,11 @@ abstract class Manager {
         try{
             $q = $this->_db->prepare($query);
             $q ->execute($array);
+            
+            $class = 'Blog\Model\\'.$type;
             $donnees = $q->fetch();
             echo "get réussi";
-            return new $type($donnees);
+            return new $class($donnees);
             
         }
         
@@ -61,15 +63,19 @@ abstract class Manager {
       }
         
     }
+    
     //retourne une liste d'objets
     public function getList($query,$type) {
 
         try {
             $q = $this->_db->prepare($query);
             $q ->execute();
+            
+            $class = 'Blog\Model\\'.$type;
+            
             while ($donnees = $q->fetch())
           {
-              $tableau[] = new Post($donnees);
+              $tableau[] = new $class($donnees);
           }
           return $tableau;
             

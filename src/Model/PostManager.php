@@ -34,7 +34,7 @@ class PostManager extends Manager {
       
   public function updatePost($post,$id) { 
     $array=(array('post'=>$post,'id'=>$id));
-    $this->insert('UPDATE posts SET post =:post WHERE ID =:id',$array);
+  return  $this->insert('UPDATE posts SET post =:post WHERE ID =:id',$array);
   }    
     
 }

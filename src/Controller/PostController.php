@@ -37,10 +37,4 @@ class  PostController extends Controller {
     // rendr view du post modifié, en réutilisant l'id envoyée en paramètres.
   }   
     
-public function Test() {
-    $tableau = ["a"=>"b",
-                "c"=>"d"];
-    return $tableau;
-}
-    
 }

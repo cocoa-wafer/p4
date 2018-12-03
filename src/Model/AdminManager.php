@@ -7,6 +7,7 @@ use Blog\Model\Manager;
 
 class AdminManager extends Manager {
     
+    
     // si on part du principe qu'on peut ajouter des admin ou en supprimer
   /* public function addAdmin(Admin $admin) {
        
@@ -28,7 +29,13 @@ class AdminManager extends Manager {
         
         $array =(array('login'=>$login));
         $result =  $this->get('SELECT * FROM admin WHERE login=:login',$array,'Admin');
+        return $result;
       
     }
+    
+    
+    public function getId() { return $this->id;}
+    public function getLogin() {return $this->login;}
+    public function getPassword() {return $this->password;}
         
 }
