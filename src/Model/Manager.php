@@ -10,10 +10,6 @@ abstract class Manager {
     
     protected $_db; 
     
-   /* const POST = new Post();
-    const COMMENT = new Comment();
-    const ADMIN = new Admin(); */
-    
   public function __construct()
       
   {
@@ -66,7 +62,7 @@ abstract class Manager {
     
     //retourne une liste d'objets
     public function getList($query,$type) {
-
+        $tableau = [];
         try {
             $q = $this->_db->prepare($query);
             $q ->execute();

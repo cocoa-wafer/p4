@@ -8,6 +8,12 @@ use Blog\Controller\Controller ;
 
 class  CommentController extends Controller {
     
+    private $commentManager; 
+    
+    
+    function __construct() {
+        $this->commentManager = New CommentManager(); 
+    }
     
     public function addComment($author,$comment, $postId) { 
     $comment = new Comment([

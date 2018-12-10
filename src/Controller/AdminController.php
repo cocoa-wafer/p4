@@ -61,9 +61,8 @@ class  AdminController extends Controller {
     
     public function getModerationList() {
         
-        // récup la liste des commentaires stockés dans le session (sous forme de tableau d'objets)
-        // soit on rajoute un cham dans db pour signifier que en attente de moderation, soit on crée un tableau d'objets qu'on stocke dans le storage. -> champ supplémentaire dans table comments plutot. 
-        // comme çà, quand clic, "modérer"-> commentManager-> signaler () { ajoute champ dans db} ensuite repris dans admin controller. dans admin controlelr,  si clic supprimer, supprime de db, sinon supprime le champ de la db.
+        return $this->adminManager->getModerationList();
+
     }
     
 }

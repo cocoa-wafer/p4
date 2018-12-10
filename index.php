@@ -10,8 +10,6 @@ use Blog\Controller\CommentController;
 use Blog\Controller\AdminController;
 
 
-//test twig.
-
 /*$loader = new \Twig_Loader_Array(array(
     'index' => 'Hello {{ name }}!',
 ));
@@ -21,10 +19,6 @@ echo $twig->render('index', array('name' => 'Fabien')); */
 
 $page = "home";
 
-if (isset($_GET['p'])) {
-    $page = $_GET['p'];
-}
-
 
 //rendu twig
 $loader = new \Twig_Loader_Filesystem(__DIR__.'/src/View');
@@ -32,9 +26,6 @@ $loader = new \Twig_Loader_Filesystem(__DIR__.'/src/View');
 $twig = new \Twig_Environment($loader, [
     'cache' => false,
 ]);
-
-
-
 
 switch ($page) {
 
@@ -44,3 +35,7 @@ switch ($page) {
         break;
     default : echo $twig->render('erreur.twig');
 }
+
+
+
+

@@ -32,14 +32,16 @@ class CommentManager extends Manager {
     
   public function signalComment($id) { 
     $array=(array('id'=>$id));
-   return $this->insert('UPDATE comments SET attente_moderation =TRUE WHERE ID =:id',$array);
+   return $this->insert('UPDATE comments SET attente_moderation =1 WHERE ID =:id',$array);
   } 
     
     public function acceptComment($id) {
         
     $array=(array('id'=>$id));
-   return $this->insert('UPDATE comments SET attente_moderation =FALSE WHERE ID =:id',$array);
+   return $this->insert('UPDATE comments SET attente_moderation =0 WHERE ID =:id',$array);
         
     }
+    
+    
     
 }
