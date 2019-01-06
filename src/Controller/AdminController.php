@@ -28,6 +28,7 @@ class  AdminController extends Controller {
      return   $this->adminManager->getAdmin($login);
     // render view twig avec tableau constitué des valeurs setters de getPost
   }    
+    //PC pas AC, rien à faire là comme deletepost / comment 
     public function addPost($author,$post) {
         $post = new Post([
         'author' => $author,
@@ -36,7 +37,8 @@ class  AdminController extends Controller {
         
       return  $this->postManager->addPost($post);
     }
-        
+      
+    
     public function deletePost($id) {
         
         // utiliser le manager plutot que new controller 
@@ -49,7 +51,12 @@ class  AdminController extends Controller {
       return  $this->postManager->getPost($id);
     }
     public function getPostsList() {
-       return $this->postManager->getPostsList();
+       
+        // pour render les infos récup dans le index. prend le fichier destinataire depuis le chemin déclaré dans controller,  et prend un tableau variable / retour de la requete requete
+        // go index pour la suite 
+        return $this->twig->render('test.twig',array(
+            'liste' =>  $this->postManager->getPostsList()
+        ));
     }
     public function deleteComment($id) {
        return $this->commentManager->deleteComment($id);

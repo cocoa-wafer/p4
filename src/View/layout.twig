@@ -3,22 +3,224 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-        <title> {%block title%} {%endblock%}</title>
+        <link rel="stylesheet" href="../../public/style.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> </title>
     </head>
     
     <body>
         
-        <h1>Blog de l'écrivain</h1>
-        <p>La bannière ici</p>
-        <button type="button" class="btn btn-primary">Primary</button>
+        <!-- à tej dans le style.css -->
+            <style>
+          body   {
+                background-color:#C8D0DB;
+              font-family: 'Roboto', Arial;
+                }
 
-        {%block content%} {%endblock%}
+        .hero-image {
+
+          background-image: url("om-malik-482054-unsplash");
+          height: 95vh;
+          background-position: center;
+          background-size: cover;
+          position: relative;
+        }
+                
+                .hero-text {
+                    position:absolute;
+                    top:30vh;
+                    left:20vh;
+                    
+                }
+                
+                .menu {
+                    height:5vh;
+                }
+            
+                .quote {
+                    background-color: rgb(41,49,62,0.9);
+                    
+                }
+                
+                .nav {
+                    display:flex;
+                    flex-direction:row;
+                    justify-content:flex-end;
+                }
+
+                .navbar, .nav {
+                    width:100%;
+                }
+                
+                .derniers {
+                    padding-top:50px;
+                    padding-bottom:50px;
+                    
+                      background-image: linear-gradient(to bottom, #c9d1dc, #bbcadb, #abc4d9, #9abed6, #87b8d3);
+
+                }
+                .card{
+                    margin: auto;
+                    box-shadow: 10px 10px 5px #636A74;
+                }
+                
+                .card-img-top {
+                    padding-top:20px;
+                }
+                
+                .list-unstyled {
+                    display:flex;
+                    justify-content: space-around;
+                }
+                
+                footer {
+                     background-image: linear-gradient(to bottom, #87b8d3, #9abed6, #abc4d9, #bbcadb, #c9d1dc);
+                    padding:20px 0;
+                }
+                
+                
+                .titre {
+                    padding:60px;
+                    text-align:center;
+                    font-family:"Arvo", Arial;
+                }
+                
+                .hero-text p {
+                    font-size : 25px;
+                }
+                
+                
+.parallelogramme{
+	width:450px;
+	height:100px;
+	/*background:#515A69;*/
+	background:#87b8d3;
+	-webkit-transform:skew(30deg);
+	-moz-transform:skew(30deg);
+	-o-transform:skew(30deg);
+	tranform:skew(30deg);
+    position:absolute;
+    top:30vh;
+    left:15vh;
+    
+}	
+                
+                a {
+                    color:#796059;
+                        
+                }
+                
+                a:hover {
+
+  animation: mymove 1s infinite;
+                }
+                
+                @keyframes mymove {
+  0%   {color:#796059;}
+  100% {color:black;}
+}
+
+
+        </style>
         
-        
-        <footer>
-            <p>Copyright @Jean Jean. Voir les mentions légales</p>
-        </footer>
-        
+        <div class="container-fluid">
+            
+            <div class="row menu">
+                <div class="navbar navbar-inverse">
+                <ul class="nav navbar-nav row">
+                    <li class="col-md-2"><a target="blank" href="#">Se connecter</a></li>
+                    <li class="col-md-2"><a target="blank" href="#">Lire le roman</a></li>
+                </ul>
+                </div>
+            </div> 
+
+             <div class="hero-image row">
+                 <div class="parallelogramme"></div>
+              <div class="hero-text">
+                <h1 class="jumbowtron">Un Billet pour l'Alaska</h1>
+                <p>Jean Forteroche</p>
+                  <button class="btn btn-lg"><a target="blank" href="#">Commencer l'aventure <i class="fas fa-angle-right"></i></a></button>
+              </div>
+            </div> 
+            
+            <div class="titre"> <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2></div>
+            <div class="derniers row">
+            
+                <div class="card col-md-3">
+  <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Lire la suite</a>
+  </div>
+</div>
+                
+                                <div class="card col-md-3">
+  <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a target="blank" href="#" class="btn btn-primary">Lire la suite</a>
+  </div>
+</div>
+            
+            </div>
+
+            
+                
+             <footer class="page-footer row">
+                <div class="container text-center text-md-left">
+                  <div class="row">
+                      
+                    <div class="col-md-3 mx-auto">
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONTACT</h5>
+                        <address>
+                          <strong>Jean Forteroche, Ecrivain</strong><br>
+                          <a target="blank" href="https://goo.gl/maps/cNVASfrWviG2">795 Folsom Ave, Suite 600<br>
+                              San Francisco, CA 94107<br></a>
+                            Téléphone: <a href="tel:0322222222">03 22 22 22 22</a>
+                        </address>
+
+                        <address>
+                          <strong>Mail</strong><br>
+                          <a href="mailto:">forteroche.jean@gmail.com</a>
+                        </address>
+                    </div>
+
+
+                    <div class="col-md-3 mx-auto">
+                      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Me suivre</h5>
+                      <ul class="list-unstyled">
+                        <li>
+                          <a target="blank" href="https://twitter.com/"><i class="fab fa-twitter-square fa-3x"></i></a>
+                        </li>
+                        <li>
+                          <a target="blank" href="https://www.facebook.com/"><i class="fab fa-facebook-square fa-3x"></i></a>
+                        </li>
+                        <li>
+                          <a target="blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-3x"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                    
+                <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                  <a target="blank" href="http://www.phebidiasaudrey.fr"> Phebidias Audrey</a>
+                </div>
+                </div>
+                
+
+
+              </footer>   
+        </div>
+
+
+            
+
         <script src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script> 
     </body>
 </html>

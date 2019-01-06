@@ -10,32 +10,27 @@ use Blog\Controller\CommentController;
 use Blog\Controller\AdminController;
 
 
-/*$loader = new \Twig_Loader_Array(array(
-    'index' => 'Hello {{ name }}!',
-));
-$twig = new \Twig_Environment($loader);
-
-echo $twig->render('index', array('name' => 'Fabien')); */
-
-$page = "home";
+$page = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+$test = $_SERVER['REQUEST_URI'];
 
 
-//rendu twig
-$loader = new \Twig_Loader_Filesystem(__DIR__.'/src/View');
-
-$twig = new \Twig_Environment($loader, [
-    'cache' => false,
-]);
-
+$admin = new adminController();
 switch ($page) {
 
-    case 'home': echo $twig->render('home.twig');
+    case 'admin' : echo $admin->getPostsList();
         break;
-    case 'contact' : echo $twig->render('contact.twig');
-        break;
-    default : echo $twig->render('erreur.twig');
+    default : echo $admin->getPostsList();
 }
 
 
 
 
+// comment utiliser twig depuis l'index.
+/* $admin = new AdminController() ;
+case "x": echo $admin -> methode(paramètres reçus en get) */
+
+
+
+
+var_dump($page);
+var_dump($test);
