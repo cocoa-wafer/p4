@@ -1,0 +1,35 @@
+{%extends 'layout.twig' %}
+
+
+{%block title%} 
+Un billet pour l'Alaska
+{%endblock%}
+
+{%block body%} 
+            
+            {{parent()}}
+            <!-- content pour accueil -->
+            <div class="titre"> <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2></div>
+            <div class="derniers row">
+            
+                <div class="card col-md-3">
+  <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{accueil[0].author}}</h5>
+    <p class="card-text">{{accueil[0].post}}</p>
+    <a href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[1].id}}" class="btn btn-primary">Lire le chapitre</a>
+  </div>
+</div>
+                
+                                <div class="card col-md-3">
+  <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{accueil[1].author}}</h5>
+    <p class="card-text">{{accueil[1].post}}</p>
+    <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[2].id}}" class="btn btn-primary">Lire le chapitre</a>
+  </div>
+</div>
+            
+            </div>
+
+{%endblock%}

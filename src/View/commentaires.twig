@@ -1,0 +1,32 @@
+            <!--block commentaires -->
+            <div class="container commentaires">
+            <div class="row">
+                <div class="col-md-8">
+                  <div class="page-header">
+                    <h1>Commentaires </h1>
+                  </div> 
+                    <div class="comments-list">
+                       
+                        {% for comment in comments %}
+
+                       <div class="media">
+                            <div class="media-body">
+                              <h4 class="media-heading user_name">{{comment.author}}</h4>
+                              <p>{{comment.comment}}</p>
+                                <a class="btn btn-primary" href="#">Signaler ce commentaire</a>
+                                <a class="btn btn-primary" href="#">Répondre</a>
+                              
+                              
+                            </div>
+                        </div>
+        
+                        {% else %}
+                                 
+                        <p>Soyez le premier à commenter ! (rendre fonctiononel)</p>
+                        {% endfor %} 
+                   </div>
+
+                </div>
+            </div>
+        </div>
+            <!-- fin block commentaires -->

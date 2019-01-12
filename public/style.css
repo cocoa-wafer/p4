@@ -1,0 +1,105 @@
+ <!-- à tej dans le style.css -->
+            <style>
+          body   {
+           
+              font-family: 'Roboto', Arial; 
+                }
+
+
+                
+                .hero-text {
+                    position:absolute;
+                    top:30vh;
+                    left:20vh;
+                    
+                }
+                
+                .menu {
+                    height:5vh;
+                }
+            
+                .quote {
+                    background-color: rgb(41,49,62,0.9);
+                    
+                }
+                
+                .nav {
+                    display:flex;
+                    flex-direction:row;
+                    justify-content:flex-end;
+                }
+
+                .navbar, .nav {
+                    width:100%;
+                }
+                
+                .derniers {
+                    padding-top:50px;
+                    padding-bottom:50px;
+                    
+                      background-image: linear-gradient(to bottom, #c9d1dc, #bbcadb, #abc4d9, #9abed6, #87b8d3);
+
+                }
+                .card{
+                    margin: auto;
+                    box-shadow: 10px 10px 5px #636A74;
+                }
+                
+                .card-img-top {
+                    padding-top:20px;
+                }
+                
+                .list-unstyled {
+                    display:flex;
+                    justify-content: space-around;
+                }
+                
+                footer {
+                     background-image: linear-gradient(to bottom, #87b8d3, #9abed6, #abc4d9, #bbcadb, #c9d1dc);
+                    padding:20px 0;
+                }
+                
+                
+                .titre {
+                    padding:60px;
+                    text-align:center;
+                    font-family:"Arvo", Arial;
+                }
+                
+                .hero-text p {
+                    font-size : 25px;
+                }
+                
+                
+.parallelogramme{
+	width:450px;
+	height:100px;
+	/*background:#515A69;*/
+	background:#87b8d3;
+	-webkit-transform:skew(30deg);
+	-moz-transform:skew(30deg);
+	-o-transform:skew(30deg);
+	tranform:skew(30deg);
+    position:absolute;
+    top:30vh;
+    left:15vh;
+    
+}	
+                
+                a {
+                    color:#796059;
+                        
+                }
+                
+                a:hover {
+
+  animation: mymove 1s infinite;
+                }
+                
+                @keyframes mymove {
+  0%   {color:#796059;}
+  100% {color:black;}
+}
+
+
+        </style>

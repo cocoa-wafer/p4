@@ -1,0 +1,24 @@
+            <!-- content pour postlists -->
+            <div class="titre"> <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2></div>
+            <div class="derniers row">
+            
+                {% for item in liste %}
+        
+    
+                <div class="card col-md-3" id={{item.id}}>
+                    <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.author}}</h5>
+                        <p class="card-text">{{item.post}}</p>
+                        <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{item.id}}" class="btn btn-primary">Lire le chapitre</a>
+                    </div>
+                </div>
+
+        
+                {% else %}
+                                 
+                <p>Erreur</p>
+                
+                {% endfor %} 
+                
+</div>

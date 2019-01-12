@@ -22,10 +22,11 @@ use Twig_Extension_Debug;
                 'debug' => true, 
             ) 
          );
-         $this->twig->addExtension(new Twig_Extension_Debug());
-        // $this->twig->addGlobal("_session",$_SESSION);
-        // $this->twig->addGlobal("_post",$_POST);
-        // $this->twig->addGlobal("_get",$_GET);
+         
+        $this->twig->addExtension(new Twig_Extension_Debug());
+        $this->twig->addGlobal("_session",$_SESSION);
+        $this->twig->addGlobal("_post",$_POST);
+        $this->twig->addGlobal("_get",$_GET);
      } 
 
 }

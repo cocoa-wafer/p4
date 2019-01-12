@@ -1,4 +1,34 @@
-               <!-- footer --> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="public/style.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> {%block title%} {% endblock %}</title>
+    </head>
+    
+     <style>
+    
+         body {
+                  background-color:#C8D0DB!important;
+         }
+    </style>
+    
+    <body>
+        
+        <div class="container-fluid">
+            
+        {% block body %} 
+
+
+        
+            
+        {% endblock %}
+            
              <footer class="page-footer row">
                 <div class="container text-center text-md-left">
                   <div class="row">
@@ -44,4 +74,9 @@
 
 
               </footer>
-            <!-- end footer -->
+            
+        </div>
+        
+        <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script> 
+    </body>
+</html>

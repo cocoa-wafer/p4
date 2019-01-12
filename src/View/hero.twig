@@ -1,0 +1,64 @@
+{% if post %}
+
+<style>
+    .hero-image {
+
+        background-image: url("src/View/mckayla-crump-650986-unsplash.jpg");
+        }
+    
+    #read {
+        display:none;
+    }
+
+</style> 
+
+{% elseif liste %}
+
+<style>
+    .hero-image {
+
+        background-image: url("src/View/ciprian-morar-194665-unsplash.jpg");
+        }
+    
+    #read {
+        display:none;
+    }
+
+</style> 
+
+
+{% else %}
+
+<style>
+    .hero-image {
+
+        background-image: url("src/View/om-malik-482054-unsplash.jpg");
+    }
+
+</style> 
+   
+{% endif %}
+
+
+<style>
+    .hero-image {
+        height: 95vh;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+</style> 
+
+        
+
+<!-- block hero -->
+<div class="hero-image row">
+    <div class="parallelogramme"></div>
+    <div class="hero-text">
+        <h1 class="jumbowtron">Un Billet pour l'Alaska</h1>
+        <p>Jean Forteroche</p>
+        <a class="btn btn-primary" id="read" href="http://localhost/tests/p4/index.php?cible=liste">Commencer l'aventure <i class="fas fa-angle-right"></i></a>
+    </div>
+</div> 
+<!-- end block hero -->

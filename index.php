@@ -2,34 +2,43 @@
 
 namespace Blog;
 
-//session start
+session_start();
 require 'vendor/autoload.php' ;
 
 use Blog\Controller\PostController;
 use Blog\Controller\CommentController;
 use Blog\Controller\AdminController;
 
-
-/* tentative routeur via base_uri   
-$base_uri = $_SERVER['REQUEST_URI'];
-$cible = str_replace('/tests/p4/index.php','',$base_uri);
-*/
-
 // routeur via $_GET['cible'];
 $admin = new AdminController() ;
+$post = new PostController() ;
+$comment = new CommentController() ;
 
 $cible = isset ($_GET['cible']) ? htmlspecialchars($_GET['cible']) : '' ;
+
+$aConnexion = $admin->getAdmin();
 
 
 switch ($cible) {
 
-        //affiche tous les posts devrait etre un post controller du coup ?
-    case 'liste' : echo $admin->getPostsList();
+
+    case 'liste' : echo $post->getPostsList();
         break;
-        // affiche un post en particulier
-        // reste a regler pb de commentaires lies a un post.
-    case 'post' : echo $admin->getPost(htmlspecialchars($_GET['id']));
+
+    case 'post' : echo $post->getPost(htmlspecialchars($_GET['id']));
+        break;
+        
+    case 'connexion' : 
+        if (isset($_POST['login']) && htmlspecialchars($_POST['login']) == $aConnexion['login'] && isset($_POST['password']) && htmlspecialchars($_POST['password']) === $aConnexion['password']) {
+            echo $admin->accueilBo();
+           // $_SESSION['logged'] = 'true';
+        }
+        else {
+            echo $admin->connexion(); 
+        }
         break;
     
-    default : echo $admin->accueil();
+    default :
+        
+        echo $admin->accueil();
 }  

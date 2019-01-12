@@ -6,13 +6,11 @@ namespace Blog\Model;
 use Blog\Model\Manager;
 
 class AdminManager extends Manager {
+
     
-    // si on part du principe que admin est dans db et que zéro ajout possible
-    
-    public function getAdmin($login) {
+    public function getAdmin() {
         
-        $array =(array('login'=>$login));
-        $result =  $this->get('SELECT * FROM admin WHERE login=:login',$array,'Admin');
+        $result =  $this->getWithoutArray('SELECT * FROM admin');
         return $result;
       
     }

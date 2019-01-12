@@ -38,6 +38,28 @@ abstract class Manager {
       }
     }
     
+        // retourne un seul objet
+    public function getWithoutArray($query) {
+        
+        try{
+            $q = $this->_db->prepare($query);
+            $q ->execute();
+
+            while ($donnees = $q->fetch())
+          {
+              $tableau = $donnees;
+              
+          }
+          return $tableau;
+            
+        }
+        
+        catch (Exception $e) {
+          'erreur'.$e->getMessage();
+      }
+        
+    }
+    
     // retourne un seul objet
     public function get($query,$array, $type) {
         
