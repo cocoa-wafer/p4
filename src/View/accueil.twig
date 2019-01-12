@@ -13,20 +13,20 @@ Un billet pour l'Alaska
             <div class="derniers row">
             
                 <div class="card col-md-3">
-  <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+  <img class="card-img-top" src="{{accueil[0].img}}.jpg" alt="Card image cap"/>
   <div class="card-body">
-    <h5 class="card-title">{{accueil[0].author}}</h5>
+    <h5 class="card-title">{{accueil[0].titre}}</h5>
     <p class="card-text">{{accueil[0].post}}</p>
-    <a href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[1].id}}" class="btn btn-primary">Lire le chapitre</a>
+    <a href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[0].id}}" class="btn btn-primary">Lire le chapitre</a>
   </div>
 </div>
                 
-                                <div class="card col-md-3">
+<div class="card col-md-3">
   <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{accueil[1].author}}</h5>
+    <h5 class="card-title">{{accueil[1].titre}}</h5>
     <p class="card-text">{{accueil[1].post}}</p>
-    <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[2].id}}" class="btn btn-primary">Lire le chapitre</a>
+    <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[1].id}}" class="btn btn-primary">Lire le chapitre</a>
   </div>
 </div>
             
