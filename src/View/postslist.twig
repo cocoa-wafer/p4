@@ -22,7 +22,7 @@
 
         .hero-image {
 
-          background-image: url("src/View/mckayla-crump-650986-unsplash.jpg");
+          background-image: url("src/View/om-malik-482054-unsplash");
           height: 95vh;
           background-position: center;
           background-size: cover;
@@ -93,18 +93,18 @@
                 }
                 
                 
-.parallelogramme{
-	width:450px;
-	height:100px;
-	/*background:#515A69;*/
-	background:#87b8d3;
-	-webkit-transform:skew(30deg);
-	-moz-transform:skew(30deg);
-	-o-transform:skew(30deg);
-	tranform:skew(30deg);
-    position:absolute;
-    top:30vh;
-    left:15vh;
+                .parallelogramme{
+	               width:450px;
+                    height:100px;
+                    /*background:#515A69;*/
+                    background:#87b8d3;
+                    -webkit-transform:skew(30deg);
+                    -moz-transform:skew(30deg);
+                    -o-transform:skew(30deg);
+                    tranform:skew(30deg);
+                    position:absolute;
+                    top:30vh;
+                    left:15vh;
     
 }	
                 
@@ -113,19 +113,16 @@
                         
                 }
                 
+                @keyframes black {
+                    0%   {color:#796059;}
+                    100% {color:black;}
+                }
+                
                 a:hover {
 
-  animation: mymove 1s infinite;
+                    animation: black 1s infinite;
                 }
-                
-                @keyframes mymove {
-  0%   {color:#796059;}
-  100% {color:black;}
-}
-                
-                .commentaires {
-                    padding:5vh;
-                }
+
 
 
         </style>
@@ -147,56 +144,33 @@
             <!-- end block hero -->
             
             <!-- content pour postlists -->
-            <div class="titre"> <h2 class="jumbowtron">{{post.title}}</h2></div>
+            <div class="titre"> <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2></div>
             <div class="derniers row">
             
-                
-                <div class="card col-md-10" id={{post.id}}>
+                {% for item in liste %}
+        
+    
+                <div class="card col-md-3" id={{item.id}}>
                     <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{post.title}}</h5>
-                        <p class="card-text">{{post.post}}</p>
-                        <a target="blank" href="#" class="btn btn-primary">Voir les commentaires</a>
+                        <h5 class="card-title">{{item.author}}</h5>
+                        <p class="card-text">{{item.post}}</p>
+                        <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{item.id}}" class="btn btn-primary">Lire le chapitre</a>
                     </div>
                 </div>
-            
+
+        
+                {% else %}
+                                 
+                <p>Erreur</p>
+                
+                {% endfor %} 
+                
             </div>
             <!-- fin block content postslists-->
-            
-            <!--block commentaires -->
-            <div class="container commentaires">
-            <div class="row">
-                <div class="col-md-8">
-                  <div class="page-header">
-                    <h1>Commentaires </h1>
-                  </div> 
-                    <div class="comments-list">
-                       
-                        {% for comment in comments %}
 
-                       <div class="media">
-                            <div class="media-body">
-                              <h4 class="media-heading user_name">{{comment.author}}</h4>
-                              <p>{{comment.comment}}</p>
-                                <a class="btn btn-primary" href="#">Signaler ce commentaire</a>
-                              
-                              
-                            </div>
-                        </div>
-        
-                        {% else %}
-                                 
-                        <p>Soyez le premier à commenter ! (rendre fonctiononel)</p>
-                        {% endfor %} 
-                   </div>
-
-                </div>
-            </div>
-        </div>
-            <!-- fin block commentaires -->
-
-            
             {% include "footer.twig" %}
+
         </div>
 
 

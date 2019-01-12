@@ -20,7 +20,6 @@ abstract class Manager {
   {
       try {
              $this->_db = new \PDO('mysql:host=localhost;dbname=p4', 'root', ''); 
-          echo 'connexion réussie';
       }
       
       catch (Exception $e) {
@@ -33,7 +32,6 @@ abstract class Manager {
         try{
         $q = $this->_db->prepare($query);
         $q->execute($array);
-        echo 'success insert';
         }
       catch (Exception $e) {
           'erreur'.$e->getMessage();
@@ -49,7 +47,6 @@ abstract class Manager {
             
             $class = 'Blog\Model\\'.$type;
             $donnees = $q->fetch();
-            echo "get réussi";
             return new $class($donnees);
             
         }
@@ -58,6 +55,28 @@ abstract class Manager {
           'erreur'.$e->getMessage();
       }
         
+    }
+    
+    
+    //retourne une liste d'objets
+    public function getListWithId($query,$array, $type) {
+        $tableau = [];
+        try {
+            $q = $this->_db->prepare($query);
+            $q ->execute($array);
+            $class = 'Blog\Model\\'.$type;
+            
+            while ($donnees = $q->fetch())
+          {
+              $tableau[] = new $class($donnees);
+              
+          }
+          return $tableau;
+            
+        } 
+        catch (Exception $e) {
+          'erreur'.$e->getMessage();
+      }
     }
     
     //retourne une liste d'objets
@@ -80,4 +99,5 @@ abstract class Manager {
           'erreur'.$e->getMessage();
       }
     }
+
 }

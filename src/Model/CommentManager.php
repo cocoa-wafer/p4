@@ -24,9 +24,9 @@ class CommentManager extends Manager {
     return $this->get('SELECT * FROM comments WHERE id=:id',$array,'Comment');
     
   }    
-  public function getListComments() { 
-      
-    return $this->getList('SELECT * FROM comments ORDER BY id','Comment');
+  public function getListComments($post_id) { 
+      $array =(array('post_id'=>$post_id));
+    return $this->getListWithId('SELECT * FROM comments WHERE post_id=:post_id',$array, 'Comment');
       
   }    
     

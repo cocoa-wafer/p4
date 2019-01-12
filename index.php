@@ -10,27 +10,26 @@ use Blog\Controller\CommentController;
 use Blog\Controller\AdminController;
 
 
-$page = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-$test = $_SERVER['REQUEST_URI'];
+/* tentative routeur via base_uri   
+$base_uri = $_SERVER['REQUEST_URI'];
+$cible = str_replace('/tests/p4/index.php','',$base_uri);
+*/
+
+// routeur via $_GET['cible'];
+$admin = new AdminController() ;
+
+$cible = isset ($_GET['cible']) ? htmlspecialchars($_GET['cible']) : '' ;
 
 
-$admin = new adminController();
-switch ($page) {
+switch ($cible) {
 
-    case 'admin' : echo $admin->getPostsList();
+        //affiche tous les posts devrait etre un post controller du coup ?
+    case 'liste' : echo $admin->getPostsList();
         break;
-    default : echo $admin->getPostsList();
-}
-
-
-
-
-// comment utiliser twig depuis l'index.
-/* $admin = new AdminController() ;
-case "x": echo $admin -> methode(paramètres reçus en get) */
-
-
-
-
-var_dump($page);
-var_dump($test);
+        // affiche un post en particulier
+        // reste a regler pb de commentaires lies a un post.
+    case 'post' : echo $admin->getPost(htmlspecialchars($_GET['id']));
+        break;
+    
+    default : echo $admin->accueil();
+}  
