@@ -1,35 +1,25 @@
-            <!--block commentaires -->
-            <div class="container commentaires">
-            <div class="row">
-                <div class="col-md-8">
-                  <div class="page-header">
-                    <h1>Commentaires </h1>
-                  </div> 
-                    <div class="comments-list">
-                       
-                        {% for comment in comments %}
-                        <hr>
-                       <div class="le{{comment.arborescence}} media">
-                            <div class="media-body">
-                              <h5 class="media-heading user_name">Posté par {{comment.author}}{{comment.id}}</h5>
-                              <p><i>{{comment.comment}}</i>
-                                <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=post&id={{post.id}}&signaler=true&comment={{comment.id}}">signaler ce commentaire</a>                                              
-                                {% include 'repondre.twig' %}
-                            </div>
-                        </div>
-        
-                        {% else %}
-                                 
-                        <p>Soyez le premier à commenter !</p>
-                        {% endfor %} 
-                   </div>
-
-                </div>
-            </div>
-        </div>
-            <!-- fin block commentaires -->
-
-
-            <style>
-
-            </style>
+<div class="container bootstrap snippet">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3>Commentaires</h3>
+                <hr/>
+				<ul class="comments">
+                {% for comment in comments %}
+				<li class="clearfix">
+				  <div class="post-comments {{comment.arborescence}}">
+				      <p class="meta">{{comment.date}} {{comment.author}} a dit : <i class="pull-right"><a href="?cible=post&id={{post.id}}&signaler=true&comment={{comment.id}}"><small>Signaler ce commentaire</small></a></i></p>
+				      <p>
+				        {{comment.comment}}
+				      </p>
+                        {% include 'repondre.twig' %}
+				  </div>
+				</li>
+                {% else %}    
+                <p>Soyez le premier à commenter !</p>
+                {% endfor %} 
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

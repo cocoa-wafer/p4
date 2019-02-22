@@ -1,28 +1,21 @@
 {% if post %}
 
 <style>
-    .hero-image {
+    .masthead{
 
         background-image: url("public/img/mckayla-crump-650986-unsplash.jpg");
         }
-    
-    #read {
-        display:none;
-    }
+
 
 </style> 
 
 {% elseif liste %}
 
 <style>
-    .hero-image {
+    .masthead {
 
         background-image: url("public/img/ciprian-morar-194665-unsplash.jpg");
         }
-    
-    #read {
-        display:none;
-    }
 
 </style> 
 
@@ -30,7 +23,7 @@
 {% else %}
 
 <style>
-    .hero-image {
+    .masthead {
 
         background-image: url("public/img/om-malik-482054-unsplash.jpg");
     }
@@ -40,25 +33,20 @@
 {% endif %}
 
 
-<style>
-    .hero-image {
-        height: 95vh;
-        background-position: center;
-        background-size: cover;
-        position: relative;
-    }
 
-</style> 
 
-        
 
-<!-- block hero -->
-<div class="hero-image row">
-    <div class="parallelogramme"></div>
-    <div class="hero-text">
-        <h1 class="jumbowtron">Un Billet pour l'Alaska</h1>
-        <p>Jean Forteroche</p>
-        <a class="btn btn-primary" id="read" href="http://localhost/tests/p4/index.php?cible=liste">Commencer l'aventure <i class="fas fa-angle-right"></i></a>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('public/img/ciprian-morar-194665-unsplash.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Un Billet pour l'Alaska</h1>
+            <span class="subheading">par Jean Forteroche</span>
+          </div>
+        </div>
+      </div>
     </div>
-</div> 
-<!-- end block hero -->
+  </header>

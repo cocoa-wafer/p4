@@ -1,18 +1,11 @@
-            <!-- content pour postlists -->
-            <div class="titre"> <h2 class="jumbowtron">{{post.title}}</h2></div>
-            <div class="derniers row">
-            
-                
-                <div class="card col-6" id={{post.id}}>
-                    <img class="card-img-top" src="public/img/{{post.img}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{post.titre}}</h5>
-                        <h5 class="card-title">{{post.author}}</h5>
-
-                        <p class="card-text">{{post.post}}</p>
-
-                    </div>
-                </div>
-            
-            </div>
-            <!-- fin block content postslists-->
+<div class="col-lg-8 col-md-10 mx-auto" id="{{post.id}}">
+    <div class="post-preview">
+        <h3 class="post-title">
+            {{post.titre}}, par {{post.author}}
+        </h3>
+        <img class="card-img-top"  src="public/img/{{post.img}}" alt="Card image cap"/>
+        <p class="post-subtitle">
+            {{post.post}}
+        </p>
+    </div>
+</div>

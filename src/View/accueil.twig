@@ -6,28 +6,37 @@ Un billet pour l'Alaska
 {%endblock%}
 
 {%block body%} 
-            <!-- content pour accueil -->
-            <div class="titre"> <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2></div>
-            <div class="derniers row">
-            
-                <div class="card col-md-3">
-  <img class="card-img-top" src="public/img/{{accueil[0].img}}" alt="Card image cap"/>
-  <div class="card-body">
-    <h5 class="card-title">{{accueil[0].titre}}</h5>
-    <p class="card-text">{{accueil[0].post |truncate(100)}}</p>
-    <a href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[0].id}}" class="btn btn-primary">Lire le chapitre</a>
-  </div>
+ <div class="container">
+ <h2> Les derniers chapitres</h2>
+<div class="col-lg-8 col-md-10 mx-auto" id="{{accueil[0].id}}">
+        <div class="post-preview">
+          <a href="?cible=post&id={{accueil[0].id}}">
+            <img class="card-img-top"  src="public/img/{{accueil[0].img}}" alt="Card image cap"/>
+            <p class="post-title">
+              {{accueil[0].title}}
+            </p>
+            <p class="post-subtitle">
+              {{accueil[0].post |truncate(100,'true','...')}}
+            </p>
+          </a>
+          <p class="post-meta">Posté par {{accueil[0].author}}, le {{accueil[0].date}}</p>
+      </div>
 </div>
-                
-<div class="card col-md-3">
-  <img class="card-img-top" src="public/img/{{accueil[1].img}}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{accueil[1].titre}}</h5>
-    <p class="card-text">{{accueil[1].post|truncate(100)}}</p>
-    <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{accueil[1].id}}" class="btn btn-primary">Lire le chapitre</a>
-  </div>
+
+<div class="col-lg-8 col-md-10 mx-auto" id="{{accueil[1].id}}">
+        <div class="post-preview">
+          <a href="?cible=post&id={{accueil[1].id}}">
+            <img class="card-img-top"  src="public/img/{{accueil[1].img}}" alt="Card image cap"/>
+            <p class="post-title">
+              {{accueil[1].title}}
+            </p>
+            <p class="post-subtitle">
+              {{accueil[1].post |truncate(100,'true','...')}}
+            </p>
+          </a>
+          <p class="post-meta">Posté par {{accueil[1].author}}, le {{accueil[1].date}}</p>
+      </div>
 </div>
-            
-            </div>
+ </div>
 
 {%endblock%}

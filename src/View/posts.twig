@@ -1,25 +1,25 @@
-            <!-- content pour postlists -->
-            <div class="titre"> <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2></div>
-            <div class="derniers row">
-            
-                {% for item in liste %}
-        
-    
-                <div class="card col-sm-3" id={{item.id}}>
-                    <img class="card-img-top"  src="public/img/{{item.img}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{item.title}}</h5>
-                           <h5 class="card-title">{{item.author}}</h5>
-                        <p class="card-text">{{item.post |truncate(100,'true','...')}}</p>
-                        <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{item.id}}" class="btn btn-primary">Lire le chapitre</a>
-                    </div>
-                </div>
+  <!-- Main Content -->
+  <div class="container">
+    <h2 class="jumbowtron"> LES DERNIERS CHAPITRES</h2>
+    <div class="row">
 
-        
-                {% else %}
-                                 
-                <p>Erreur</p>
-                
-                {% endfor %} 
-                
+     {% for item in liste %}
+      <div class="col-lg-8 col-md-10 mx-auto" id="{{item.id}}">
+        <div class="post-preview">
+          <a href="?cible=post&id={{item.id}}">
+            <img class="card-img-top"  src="public/img/{{item.img}}" alt="Card image cap"/>
+            <p class="post-title">
+              {{item.title}}
+            </p>
+            <p class="post-subtitle">
+              {{item.post |truncate(100,'true','...')}}
+            </p>
+          </a>
+          <p class="post-meta">Posté par {{item.author}}, le {{item.date}}</p>
+      </div>
+     </div>
+        <hr>
+    {% else %}
+        <p>Pas de nouveau chapitre</p>
+    {% endfor %} 
 </div>
