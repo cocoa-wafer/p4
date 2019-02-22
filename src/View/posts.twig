@@ -5,11 +5,12 @@
                 {% for item in liste %}
         
     
-                <div class="card col-md-3" id={{item.id}}>
-                    <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+                <div class="card col-sm-3" id={{item.id}}>
+                    <img class="card-img-top"  src="public/img/{{item.img}}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{item.author}}</h5>
-                        <p class="card-text">{{item.post}}</p>
+                        <h5 class="card-title">{{item.title}}</h5>
+                           <h5 class="card-title">{{item.author}}</h5>
+                        <p class="card-text">{{item.post |truncate(100,'true','...')}}</p>
                         <a target="blank" href="http://localhost/tests/p4/index.php?cible=post&id={{item.id}}" class="btn btn-primary">Lire le chapitre</a>
                     </div>
                 </div>

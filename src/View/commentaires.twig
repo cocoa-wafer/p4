@@ -8,21 +8,19 @@
                     <div class="comments-list">
                        
                         {% for comment in comments %}
-
-                       <div class="media">
+                        <hr>
+                       <div class="le{{comment.arborescence}} media">
                             <div class="media-body">
-                              <h4 class="media-heading user_name">{{comment.author}}</h4>
-                              <p>{{comment.comment}}</p>
-                                <a class="btn btn-primary" href="#">Signaler ce commentaire</a>
-                                <a class="btn btn-primary" href="#">Répondre</a>
-                              
-                              
+                              <h5 class="media-heading user_name">Posté par {{comment.author}}{{comment.id}}</h5>
+                              <p><i>{{comment.comment}}</i>
+                                <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=post&id={{post.id}}&signaler=true&comment={{comment.id}}">signaler ce commentaire</a>                                              
+                                {% include 'repondre.twig' %}
                             </div>
                         </div>
         
                         {% else %}
                                  
-                        <p>Soyez le premier à commenter ! (rendre fonctiononel)</p>
+                        <p>Soyez le premier à commenter !</p>
                         {% endfor %} 
                    </div>
 
@@ -30,3 +28,8 @@
             </div>
         </div>
             <!-- fin block commentaires -->
+
+
+            <style>
+
+            </style>

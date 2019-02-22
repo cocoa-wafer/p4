@@ -18,17 +18,18 @@ class  CommentController extends Controller {
         $this->commentManager = new CommentManager();
     }
     
-    public function addComment($author,$comment, $postId) { 
-        
-        // gerer ici arborescence des commentaires
+    public function addComment($author,$comment, $postId,$arborescence,$comment_parent) { 
         
     $comment = new Comment([
         'author' => $author,
         'comment' => $comment,
-        'postId' => $postId
+        'postId' => $postId,
+        'arborescence' => $arborescence,
+        'comment_parent' => $comment_parent
+
     ]);
-      
-    $this->commentManager->createComment($comment);
+  
+   return $this->commentManager->createComment($comment);
     // render twig ici render view avant ajout mais avec celui en plus
     // issue: comment récup les infos précédentes pour les render ? session infos ?
   }  

@@ -8,6 +8,8 @@ class Post {
     private $author;
     private $post;
     private $post_date;
+    private $img;
+    private $titre;
     
     function __construct(array $donnees) {
         try{        $this->hydrate($donnees);}
@@ -47,11 +49,21 @@ class Post {
     function setDate($date) {
         $this->post_date = $date;
     }
+
+    function setTitre($titre) {
+        $this->titre = $titre;
+    }
+
+    function setImg($img) {
+        $this->img = $img;
+    }
     
     function getId() { return $this->id;}
     function getAuthor() { return $this->author;}
     function getPost() { return $this->post;}
     function getPostdate() { return $this->post_date;}
+    function getTitre() { return $this->titre;}
+    function getImg() { return $this->img;}
     
     
 }

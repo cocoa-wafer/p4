@@ -1,9 +1,19 @@
- <!-- à tej dans le style.css -->
-            <style>
+
           body   {
            
               font-family: 'Roboto', Arial; 
                 }
+
+
+                .le2 {
+                    margin-left:100px;
+                
+                }
+
+                .le2 h4 {
+                    display:none;
+                }
+    
 
 
                 
@@ -69,6 +79,19 @@
                 .hero-text p {
                     font-size : 25px;
                 }
+
+                .btn {
+                    background: linear-gradient(135deg, #6e8efb, #a777e3);
+                    border:1px solid #6e8efb;
+                }
+                
+                input {
+                    border: 2px solid white;
+                    border-radius: 40px;
+                    height: 40px;
+                    padding: 0 11px;
+                    font-size: 14px;
+                  }
                 
                 
 .parallelogramme{
@@ -102,4 +125,6 @@
 }
 
 
-        </style>
+.comment {
+    padding : 50px;
+}

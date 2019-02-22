@@ -9,8 +9,8 @@ class PostManager extends Manager {
     
   public function addPost(Post $post) {
       
-    $array = (array('author'=>$post->getAuthor(),'post'=>$post->getPost()));  
-    $this->insert('INSERT INTO posts(author,post,post_date) VALUES(:author,:post,NOW())',$array);
+    $array = (array('author'=>$post->getAuthor(),'post'=>$post->getPost(), 'titre'=>$post->getTitre()));  
+    $this->insert('INSERT INTO posts(author,post,titre,post_date) VALUES(:author,:post,:titre,NOW())',$array);
   } 
     
   public function deletePost($id) {
@@ -32,9 +32,11 @@ class PostManager extends Manager {
   }  
       
       
-  public function updatePost($post,$id) { 
-    $array=(array('post'=>$post,'id'=>$id));
-  return  $this->insert('UPDATE posts SET post =:post WHERE ID =:id',$array);
-  }    
+  public function updatePost($post, $author, $titre,$id) { 
+    $array=(array('post'=>$post,'author'=>$author,'titre'=>$titre, 'id'=>$id));
+    $this->insert('UPDATE posts SET post =:post, author=:author, titre =:titre WHERE ID =:id',$array);
+  }   
+    
+    
     
 }

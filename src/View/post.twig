@@ -3,13 +3,13 @@
             <div class="derniers row">
             
                 
-                <div class="card col-md-10" id={{post.id}}>
-                    <img class="card-img-top" src="ciprian-morar-194665-unsplash.jpg" alt="Card image cap">
+                <div class="card col-6" id={{post.id}}>
+                    <img class="card-img-top" src="public/img/{{post.img}}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{post.title}}</h5>
+                        <h5 class="card-title">{{post.titre}}</h5>
+                        <h5 class="card-title">{{post.author}}</h5>
+
                         <p class="card-text">{{post.post}}</p>
-                        
-                        <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=post&id={{post.id}}&commenter=true">ajouter un commentaire</a>
 
                     </div>
                 </div>

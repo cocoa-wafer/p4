@@ -1,21 +1,18 @@
 {%extends 'layout.twig'%}  
 
 {%block title%} 
-{{post.author}}
+{{post.title}}
 {%endblock%}
 
 
 {%block body%} 
 
-{{parent()}}
-
 {% include 'post.twig' %}
 
-{%if _get.commenter %}
+{% include 'commenter.twig' %}
+
 
 {% include 'commentaires.twig' %}
-
-{%endif%}
             
 
 {%endblock%}

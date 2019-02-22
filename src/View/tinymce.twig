@@ -1,0 +1,40 @@
+{%if post%}
+
+<form method="post" action="http://localhost/tests/p4/index.php?cible=updating&id={{post.id}}">
+<input type="text" value="{{post.titre}}" name="titre"/>
+<input type="text" value="{{post.author}}" name="author"/>
+    <textarea id="basic-example" name="post">{{post.post}}</textarea>
+<input type="submit" value="modifier" />   
+</form>
+
+{%else %}
+
+<form method="post" action="http://localhost/tests/p4/index.php?cible=creer">
+<input type="text" placeholder="titre du chapitre" name="titre"/>
+<input type="text" placeholder="votre nom" name="author"/>
+<textarea id="basic-example" name="post"></textarea>
+<input type="submit" value="ajouter ce chapitre"/>   
+</form>
+  
+{%endif%}
+
+<script type="text/javascript" src="vendor/tinymce/tinymce/tinymce.min.js"></script>
+
+<script>
+tinymce.init({
+  selector: 'textarea#basic-example',
+  height: 500,
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor textcolor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table paste code help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tiny.cloud/css/codepen.min.css'
+  ]
+});
+</script>
+

@@ -2,7 +2,24 @@
 
 {%block body%}
 
-{{parent()}}
+<h2>Derniers chapitres </h2>
+{% for post in posts%}
+
+<p>{{post.titre}}: {{post.author}}. <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=modifier&post={{post.id}}">Modifier ce post</a> <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=connexion&post={{post.id}}&cible=supprimer">Supprimer ce post</a></p>
+
+
+{%else%}
+
+{%endfor%}
+<p><a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=creer">Ecrire un nouveau chapitre</a></p>
+
+<h2> les commentaires en attente de moderation</h2>
+
+{%for comment in comments%}
+<p>{{comment.author}}, {{comment.comment}} <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=connexion&comment={{comment.id}}&cible=supprimer">Supprimer le commentaire</a> <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=connexion&comment={{comment.id}}&cible=accepter">Accepter ce commentaire</a></p>
+{%else%}
+<p>Pas de commentaires à modérer</p>
+{%endfor%}
 
 
 {%endblock%}
