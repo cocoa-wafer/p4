@@ -4,6 +4,7 @@ namespace Blog\Model;
 class Comment {
     
     private $id;
+    private $attente_moderation;
     private $postId;
     private $author;
     private $comment;
@@ -31,6 +32,10 @@ class Comment {
         if ($id >0) {
             $this->id = $id;
         }
+    }
+
+    function setAttenteModeration($attente_moderation) {
+        $this->attente_moderation =$attente_moderation;
     }
     
     function setPostId($postId) {
@@ -70,6 +75,7 @@ class Comment {
     function getComment() { return $this->comment;}
     function getCommentdate() { return $this->comment_date;}  
     function getArborescence() { return $this->arborescence;}   
-    function getCommentParent() { return $this->comment_parent;}  
+    function getCommentParent() { return $this->comment_parent;} 
+    function getAttenteModeration() { return $this->attente_moderation;}  
     
 }

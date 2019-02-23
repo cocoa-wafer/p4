@@ -27,11 +27,17 @@ class CommentManager extends Manager {
     return $this->get('SELECT * FROM comments WHERE id=:id',$array,'Comment');
     
   }  
+
+  public function getCommentWithParent($comment_parent) {
+    $array =(array('comment_parent'=>$comment_parent));
+    return $this->get('SELECT * FROM comments WHERE comment_parent=:comment_parent',$array,'Comment');
+
+  }
     
     // à modifier pour arobrescence todo
   public function getListComments($post_id) { 
       $array =(array('post_id'=>$post_id));
-    return $this->getListWithId('SELECT * FROM comments WHERE post_id=:post_id ORDER BY comment_parent',$array, 'Comment');   
+    return $this->getListWithId('SELECT * FROM comments WHERE post_id=:post_id',$array, 'Comment');   
   }    
     
   public function signalComment($id) { 

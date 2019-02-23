@@ -1,28 +1,53 @@
+<div class="container">
+  <h2> EDITER CE POST</h2>
 {%if post%}
 
-<form method="post" action="http://localhost/tests/p4/index.php?cible=updating&id={{post.id}}">
-<input type="text" value="{{post.titre}}" name="titre"/>
-<input type="text" value="{{post.author}}" name="author"/>
-    <textarea id="basic-example" name="post">{{post.post}}</textarea>
-<input type="submit" value="modifier" />   
-</form>
+  <form method="post" action="?cible=updating&id={{post.id}}">
+
+    <div class="md-form">
+      <input type="text" id="form1" class="form-control" value="{{post.author}}" name="author" required>
+      <label for="form1"></label>
+    </div>
+
+    <div class="md-form">
+      <input type="text" id="form1" class="form-control" value="{{post.titre}}" name="titre" required>
+      <label for="form1"></label>
+    </div>
+
+    <textarea id="post" name="post">{{post.post}}</textarea>
+    <input class="btn btn-primary btn-block" type="submit" value="modifier ce chapitre"/>   
+
+  </form>
 
 {%else %}
+<div class="container">
+  <h2> EDITER CE POST</h2>
+  <form method="post" action="?cible=creer">
 
-<form method="post" action="http://localhost/tests/p4/index.php?cible=creer">
-<input type="text" placeholder="titre du chapitre" name="titre"/>
-<input type="text" placeholder="votre nom" name="author"/>
-<textarea id="basic-example" name="post"></textarea>
-<input type="submit" value="ajouter ce chapitre"/>   
-</form>
+    <div class="md-form">
+      <input type="text" id="form1" class="form-control" placeholder="nom de l'auteur" name="author" required>
+      <label for="form1"></label>
+    </div>
+
+    <div class="md-form">
+      <input type="text" id="form1" class="form-control" placeholder="titre du chapitre" name="titre" required>
+      <label for="form1"></label>
+    </div>
+
+    <textarea id="post" name="post"></textarea>
+    <input class="btn btn-primary btn-block" type="submit" value="ajouter ce chapitre"/>   
+
+  </form>
+  {%endif%}
   
-{%endif%}
+</div>
+
 
 <script type="text/javascript" src="vendor/tinymce/tinymce/tinymce.min.js"></script>
 
 <script>
 tinymce.init({
-  selector: 'textarea#basic-example',
+  selector: 'textarea#post',
   height: 500,
   menubar: false,
   plugins: [

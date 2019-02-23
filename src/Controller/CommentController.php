@@ -59,6 +59,10 @@ class  CommentController extends Controller {
         
         $this->commentManager->signalComment($id);
     }
+
+    public function commentParent($comment_parent) {
+      return $this->commentManager->getCommentWithParent($comment_parent);
+    }
     
     
 }

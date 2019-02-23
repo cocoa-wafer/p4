@@ -1,25 +1,84 @@
 {%extends 'layout.twig'%}
-
 {%block body%}
 
-<h2>Derniers chapitres </h2>
+{% if _session['logged'] %}
+    <div class="alert alert-dismissible alert-danger">
+        <strong><a class="nav-link" href="?cible=logged">Déconnexion</a></strong>
+    </div>
+{% endif %} 
+
+<div class="container-fluid">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Les derniers chapitres
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Auteur</th>
+                    <th>Titre</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+
 {% for post in posts%}
-
-<p>{{post.titre}}: {{post.author}}. <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=modifier&post={{post.id}}">Modifier ce post</a> <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=connexion&post={{post.id}}&cible=supprimer">Supprimer ce post</a></p>
-
-
+                  <tr>
+                    <td>{{post.author}}</td>
+                    <td>{{post.titre}} </td>
+                    <td><a href="http://localhost/tests/p4/index.php?cible=modifier&post={{post.id}}">Modifier ce post</a></td>
+                    <td><a href="http://localhost/tests/p4/index.php?cible=connexion&post={{post.id}}&cible=supprimer">Supprimer ce post</a></td>
+                  </tr>
+                  <tr>
 {%else%}
 
 {%endfor%}
-<p><a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=creer">Ecrire un nouveau chapitre</a></p>
+                </tbody>
+              </table>
+              <div class="alert alert-dismissible alert-secondary">
+                <strong>Beau travail !</strong> Continuez l'aventure et rédigez un nouveau chapitre <a href="?cible=creer" class="alert-link">en cliquant ici</a></div>
+            </div>
+        </div>
+    </div>
 
-<h2> les commentaires en attente de moderation</h2>
 
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Les commentaires en attente de moderation
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Auteur</th>
+                    <th>Commentaire</th>
+                    <th>Accepter</th>
+                    <th>Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
 {%for comment in comments%}
-<p>{{comment.author}}, {{comment.comment}} <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=connexion&comment={{comment.id}}&cible=supprimer">Supprimer le commentaire</a> <a class="btn btn-primary" href="http://localhost/tests/p4/index.php?cible=connexion&comment={{comment.id}}&cible=accepter">Accepter ce commentaire</a></p>
+                  <tr>
+                    <td>{{comment.author}}</td>
+                    <td>{{comment.comment}} </td>
+                    <td><a href="?cible=connexion&comment={{comment.id}}&cible=accepter">Accepter ce commentaire</a></td>
+                    <td><a href="?cible=connexion&comment={{comment.id}}&cible=supprimer">Supprimer ce commentaire</a></td>
+                  </tr>
+                  <tr>
 {%else%}
-<p>Pas de commentaires à modérer</p>
+                <tr>Pas de commentaires à modérer</tr>
 {%endfor%}
-
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 {%endblock%}

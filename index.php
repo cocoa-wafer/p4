@@ -17,10 +17,15 @@ $comment = new CommentController() ;
 $cible = isset ($_GET['cible']) ? htmlspecialchars($_GET['cible']) : '' ;
 
 $aConnexion = $admin->getAdmin();
+var_dump($_SESSION);
 
 switch ($cible) {
+    case 'logged':
+    session_destroy();
+    header("Location: index.php");
+    break;
         
-        case 'creer' :
+    case 'creer' :
         echo $post-> creerPost();
         break;
         
@@ -39,18 +44,17 @@ switch ($cible) {
     case 'post' : 
         if (isset ($_POST['author'])) {
             $comment->addComment($_POST['author'],$_POST['comment'],$_GET['id'], $_GET['arborescence'],$_GET['comment_parent']);
-        }
-        echo $post->getPost(htmlspecialchars($_GET['id']));
+        }   
 
         if (isset ($_GET['signaler'])) {
             $comment->signalComment($_GET['comment']);
         }
+        echo $post->getPost(htmlspecialchars($_GET['id']));
         
         break;
         
     case 'connexion' : 
-    // si logges est true, on charge la page admin, sinon on charge la connexion.
-
+        
         if (isset($_POST['login']) && htmlspecialchars($_POST['login']) == $aConnexion['login'] && isset($_POST['password']) && htmlspecialchars($_POST['password']) === $aConnexion['password']) {
             $_SESSION['logged'] = 'true';
             echo $admin->accueilBo();
@@ -62,9 +66,10 @@ switch ($cible) {
             }
             echo $admin->accueilBo();
 
-        } else if (isset($_POST['update'])) {
+        }  
+        else if (isset($_POST['update'])) {
             $post->updatePost();
-        }
+        } 
 
         else {
             echo $admin->connexion(); 
