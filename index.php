@@ -9,7 +9,6 @@ use Blog\Controller\PostController;
 use Blog\Controller\CommentController;
 use Blog\Controller\AdminController;
 
-// routeur via $_GET['cible'];
 $admin = new AdminController() ;
 $post = new PostController() ;
 $comment = new CommentController() ;
@@ -17,7 +16,6 @@ $comment = new CommentController() ;
 $cible = isset ($_GET['cible']) ? htmlspecialchars($_GET['cible']) : '' ;
 
 $aConnexion = $admin->getAdmin();
-var_dump($_SESSION);
 
 switch ($cible) {
     case 'logged':
@@ -37,6 +35,14 @@ switch ($cible) {
         $post->updatingPost($_POST['post'],$_POST['author'],$_POST['titre'],$_GET['id']);
         echo $admin->accueilBo();
         break;
+    case 'creation':
+        $post->addPost($_POST['author'],$_POST['post'],$_POST['titre']);
+        $_SESSION['message'] = "ajout réussi";
+        echo $admin->accueilBo();
+        var_dump($_SESSION['message']);
+        unset($_SESSION['message']);
+        break;
+
     case 'liste' : 
     echo $post->getPostsList();
         break;

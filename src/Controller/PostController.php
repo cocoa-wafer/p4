@@ -24,7 +24,6 @@ class  PostController extends Controller {
          return $this->twig->render('tiny.twig');
     }
 
-    
   public function addPost($author,$post,$titre) { 
     $post = new Post([
         'author' => $author,
@@ -33,14 +32,11 @@ class  PostController extends Controller {
     ]);
       
     $this->postManager->addPost($post);
-    // render twig ici render view avant ajout mais avec celui en plus
-    // issue: comment récup les infos précédentes pour les render ? session infos ?
+
   }    
   public function deletePost($id) { 
     $this->postManager->deletePost($id);
-      
-    // render view twig même que avant click sup mais sans le post en question 
-    // issue : comment recup donnees utilisees dans le twig precedent ? session infos ?
+
   }    
     public function getPost($id) {
         return $this->twig->render('postview.twig',
