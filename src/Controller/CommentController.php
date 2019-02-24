@@ -51,7 +51,7 @@ class  CommentController extends Controller {
   }   
     
   public function getListComments($post_id) { 
-    $this->commentManager->getListComments();
+    $this->commentManager->getListComments($_post_id);
     // twig en utilsiant tableau d'objets post
   } 
     

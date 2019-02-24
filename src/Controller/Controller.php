@@ -15,7 +15,6 @@ use \Twig_Extensions_Extension_Text;
      public function __construct() {
            // on crée un environnement twig  qui prend en compte le dossier ou sont les vues, et un tableau d'options à passer en true en prod. 
          // on déclare aussi les deux autres pr péter les bugs et afficher les variables superglobales session, post, et get.
-         // go admin controller pour la suire 
          
          $this->twig = new Twig_Environment(
              new Twig_Loader_Filesystem(array('./src/View')), 

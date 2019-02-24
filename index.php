@@ -19,9 +19,9 @@ $aConnexion = $admin->getAdmin();
 
 switch ($cible) {
     case 'logged':
-    session_destroy();
-    header("Location: index.php");
-    break;
+        session_destroy();
+        header("Location: index.php");
+        break;
         
     case 'creer' :
         echo $post-> creerPost();
@@ -29,21 +29,21 @@ switch ($cible) {
         
     case 'modifier':
         echo $post->updatePost($_GET['post']);
-       break; 
+        break; 
 
     case 'updating':
         $post->updatingPost($_POST['post'],$_POST['author'],$_POST['titre'],$_GET['id']);
         echo $admin->accueilBo();
         break;
+
     case 'creation':
         $post->addPost($_POST['author'],$_POST['post'],$_POST['titre']);
         $_SESSION['message'] = "ajout réussi";
         echo $admin->accueilBo();
-        unset($_SESSION['message']);
         break;
 
     case 'liste' : 
-    echo $post->getPostsList();
+        echo $post->getPostsList();
         break;
 
     case 'post' : 
@@ -80,27 +80,25 @@ switch ($cible) {
             echo $admin->connexion(); 
         }
         break;
-    case 'supprimer':
-    if (isset($_GET['post'])){
-        $post->deletePost($_GET['post']);
-        echo $admin->accueilBo();
 
-    } else if (isset($_GET['comment'])) {
-        $comment->deleteComment($_GET['comment']); 
-        echo $admin->accueilBo();
-    } else {
-        echo $admin->accueilBo();
-    }
+    case 'supprimer':
+        if (isset($_GET['post'])){
+            $post->deletePost($_GET['post']);
+            echo $admin->accueilBo();
+
+        }  else if (isset($_GET['comment'])) {
+            $comment->deleteComment($_GET['comment']); 
+            echo $admin->accueilBo();
+        } else {
+            echo $admin->accueilBo();
+        }
         break;
         
     case 'accepter':
-    $comment->acceptComment($_GET['comment']); 
-    echo $admin->accueilBo();
-
- 
+        $comment->acceptComment($_GET['comment']); 
+        echo $admin->accueilBo();
         break;
     
-    default :
-        
+    default :  
         echo $admin->accueil();
 }  
