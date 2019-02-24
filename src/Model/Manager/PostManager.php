@@ -7,7 +7,7 @@ use Blog\Model\Entity\Manager;
 class PostManager extends Manager {
     
     
-  public function addPost(Post $post) {
+  public function addPost($post) {
       
     $array = (array('author'=>$post->getAuthor(),'post'=>$post->getPost(), 'titre'=>$post->getTitre()));  
     $this->insert('INSERT INTO posts(author,post,titre,post_date) VALUES(:author,:post,:titre,NOW())',$array);

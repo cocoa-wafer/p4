@@ -6,7 +6,7 @@ use Blog\Model\Entity\Manager;
 class CommentManager extends Manager {
     
     
-  public function createComment(Comment $comment) { 
+  public function createComment($comment) { 
     $array =(array('post_id' => $comment->getPostId(),
                    'author'=>$comment->getAuthor(),
                    'comment' => $comment->getComment(),
