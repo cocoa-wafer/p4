@@ -2,9 +2,9 @@
 
 namespace Blog\Controller;
 
-use Blog\Model\Post;
-use Blog\Model\PostManager;
-use Blog\Model\CommentManager;
+use Blog\Model\Entity\Post;
+use Blog\Model\Manager\PostManager;
+use Blog\Model\Manager\CommentManager;
 use Blog\Controller\Controller;
 
 class  PostController extends Controller {
@@ -21,7 +21,7 @@ class  PostController extends Controller {
     }
     
     public function creerPost() {
-         return $this->twig->render('tiny.twig');
+         return $this->twig->render('Post/postAdd.twig');
     }
 
   public function addPost($author,$post,$titre) { 
@@ -39,7 +39,7 @@ class  PostController extends Controller {
 
   }    
     public function getPost($id) {
-        return $this->twig->render('postview.twig',
+        return $this->twig->render('Post/postview.twig',
         array(
             'post' =>  $this->postManager->getPost($id),
             'comments' => $this->commentManager->getListComments($id)
@@ -49,12 +49,12 @@ class  PostController extends Controller {
     
     public function getPostsList() {
        
-        return $this->twig->render('postslist.twig',array(
+        return $this->twig->render('Post/postslist.twig',array(
             'liste' =>  $this->postManager->getPostsList()
         ));
     }
   public function updatePost($id) { 
-      return $this->twig->render('tiny.twig', array(
+      return $this->twig->render('Post/postAdd.twig', array(
             "post" => $this->postManager->getPost($id)
       ));
   }  

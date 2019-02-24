@@ -1,6 +1,6 @@
 <?php 
 
-namespace Blog\Model;
+namespace Blog\Model\Entity;
 
 class Admin {
     

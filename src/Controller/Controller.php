@@ -1,6 +1,7 @@
 <?php 
 
 namespace Blog\Controller;
+
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 use Twig_Extension_Debug;

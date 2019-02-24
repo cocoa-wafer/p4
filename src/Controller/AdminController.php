@@ -2,10 +2,10 @@
 
 namespace Blog\Controller;
 
-use Blog\Model\Admin ;
-use Blog\Model\AdminManager ;
-use Blog\Model\PostManager ;
-use Blog\Model\CommentManager ;
+use Blog\Model\Entity\Admin ;
+use Blog\Model\Manager\AdminManager ;
+use Blog\Model\Manager\PostManager ;
+use Blog\Model\Manager\CommentManager ;
 use Blog\Controller\Controller;
 
 class  AdminController extends Controller {
@@ -30,11 +30,11 @@ class  AdminController extends Controller {
   }  
     
     public function connexion() {
-        return $this->twig->render('connexion.twig');
+        return $this->twig->render('Admin/connexion.twig');
     }
     
     public function accueilBo() {
-        return $this->twig->render('accueil_bo.twig',array(
+        return $this->twig->render('Admin/accueil_bo.twig',array(
             "posts" => $this->postManager->getPostsList(),
             "comments" => $this->commentManager->getSignaledComments()
 
@@ -54,7 +54,7 @@ class  AdminController extends Controller {
     }
     
    public function accueil() {
-        return $this->twig->render('accueil.twig', array(
+        return $this->twig->render('Admin/accueil.twig', array(
             "accueil" => $this->postManager->getPostsList()
         ));
     } 

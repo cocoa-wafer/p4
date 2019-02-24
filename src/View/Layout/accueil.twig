@@ -1,0 +1,42 @@
+{%extends 'Layout/layout.twig' %}
+
+
+{%block title%} 
+Un billet pour l'Alaska
+{%endblock%}
+
+{%block body%} 
+ <div class="container">
+ <h2> LES DERNIERS CHAPITRES</h2>
+<div class="col-lg-8 col-md-10 mx-auto" id="{{accueil[0].id}}">
+        <div class="post-preview">
+          <a href="?cible=post&id={{accueil[0].id}}">
+            <img class="card-img-top"  src="public/img/{{accueil[0].img}}" alt="Card image cap"/>
+            <p class="post-title">
+              {{accueil[0].title}}
+            </p>
+            <p class="post-subtitle">
+              {{accueil[0].post|length > 50 ? accueil[0].post|striptags|slice(0, 50) ~ '...' :accueil[0].post}}
+            </p>
+          </a>
+          <p class="post-meta">Posté par {{accueil[0].author}}, le {{accueil[0].date}}</p>
+      </div>
+</div>
+
+<div class="col-lg-8 col-md-10 mx-auto" id="{{accueil[1].id}}">
+        <div class="post-preview">
+          <a href="?cible=post&id={{accueil[1].id}}">
+            <img class="card-img-top"  src="public/img/{{accueil[1].img}}" alt="Card image cap"/>
+            <p class="post-title">
+              {{accueil[1].title}}
+            </p>
+            <p class="post-subtitle">
+              {{accueil[1].post|length > 50 ? accueil[1].post|striptags|slice(0, 50) ~ '...' :accueil[1].post}}
+            </p>
+          </a>
+          <p class="post-meta">Posté par {{accueil[1].author}}, le {{accueil[1].date}}</p>
+      </div>
+</div>
+ </div>
+
+{%endblock%}

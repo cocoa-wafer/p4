@@ -2,8 +2,8 @@
 namespace Blog\Controller;
 
 
-use Blog\Model\CommentManager ;
-use Blog\Model\Comment ;
+use Blog\Model\Manager\CommentManager ;
+use Blog\Model\Entity\Comment ;
 use Blog\Controller\Controller ;
 
 class  CommentController extends Controller {

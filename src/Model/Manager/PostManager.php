@@ -1,8 +1,8 @@
 <?php 
 
-namespace Blog\Model;
+namespace Blog\Model\Manager;
 
-use Blog\Model\Manager;
+use Blog\Model\Entity\Manager;
 
 class PostManager extends Manager {
     

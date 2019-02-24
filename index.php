@@ -39,7 +39,6 @@ switch ($cible) {
         $post->addPost($_POST['author'],$_POST['post'],$_POST['titre']);
         $_SESSION['message'] = "ajout réussi";
         echo $admin->accueilBo();
-        var_dump($_SESSION['message']);
         unset($_SESSION['message']);
         break;
 

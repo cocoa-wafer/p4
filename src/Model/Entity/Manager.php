@@ -1,10 +1,10 @@
 <?php 
 
-namespace Blog\Model;
+namespace Blog\Model\Entity;
 
-use Blog\Model\Admin;
-use Blog\Model\Post;
-use Blog\Model\Comment;
+use Blog\Model\Entity\Admin;
+use Blog\Model\Entity\Post;
+use Blog\Model\Entity\Comment;
 
 abstract class Manager {
     
@@ -67,7 +67,7 @@ abstract class Manager {
             $q = $this->_db->prepare($query);
             $q ->execute($array);
             
-            $class = 'Blog\Model\\'.$type;
+            $class = 'Blog\Model\Entity\\'.$type;
             $donnees = $q->fetch();
             return new $class($donnees);
             
@@ -86,7 +86,7 @@ abstract class Manager {
         try {
             $q = $this->_db->prepare($query);
             $q ->execute($array);
-            $class = 'Blog\Model\\'.$type;
+            $class = 'Blog\Model\Entity\\'.$type;
             
             while ($donnees = $q->fetch())
           {
@@ -108,7 +108,7 @@ abstract class Manager {
             $q = $this->_db->prepare($query);
             $q ->execute();
             
-            $class = 'Blog\Model\\'.$type;
+            $class = 'Blog\Model\Entity\\'.$type;
             
             while ($donnees = $q->fetch())
           {
