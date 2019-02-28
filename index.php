@@ -19,6 +19,7 @@ $aConnexion = $admin->getAdmin();
 
 switch ($cible) {
     case 'logged':
+        $_SESSION=[];
         session_destroy();
         header("Location: index.php");
         break;
@@ -59,12 +60,13 @@ switch ($cible) {
         break;
         
     case 'connexion' : 
-        
+
         if (isset($_POST['login']) && htmlspecialchars($_POST['login']) == $aConnexion['login'] && isset($_POST['password']) && htmlspecialchars($_POST['password']) === $aConnexion['password']) {
-            $_SESSION['logged'] = 'true';
+            $_SESSION['logged'] = true;
             echo $admin->accueilBo();
         }
-        else if ($_SESSION['logged'] = 'true'){
+        else if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+
             if (isset($_POST['post'])) {
                 $post->addPost($_POST['author'], $_POST['post'], $_POST['titre']);
 
