@@ -1,17 +1,14 @@
 {%extends 'Layout/layout.twig'%}
 {%block body%}
 
-{% if _session['logged'] %}
-    <div class="alert alert-dismissible alert-danger">
-        <strong><a class="nav-link" href="?cible=logged">Déconnexion</a></strong>
-    </div>
-{% endif %} 
+ {% if _session['message'] %}
+<p>{{_session['message']}}</p>
 
-{% if _session['message'] %}
-    <div class="alert alert-dismissible alert-success">
-        <p>{{_session['message']}}</p>
-    </div>
-{% endif %} 
+ {% endif %}
+
+  {% if _session['logged'] == true %}
+<a href="?cible=logged">deconnexion</a>
+ {% endif %}
 
 <div class="container-fluid">
     <div class="card mb-3">
@@ -40,9 +37,9 @@
                     <td><a href="http://localhost/tests/p4/index.php?cible=connexion&post={{post.id}}&cible=supprimer">Supprimer ce post</a></td>
                   </tr>
                   <tr>
-{%else%}
+{% else %}
 
-{%endfor%}
+{% endfor %}
                 </tbody>
               </table>
               <div class="alert alert-dismissible alert-secondary">

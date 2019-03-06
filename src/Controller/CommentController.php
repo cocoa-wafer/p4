@@ -29,9 +29,9 @@ class  CommentController extends Controller {
 
     ]);
   
-   return $this->commentManager->createComment($comment);
-    // render twig ici render view avant ajout mais avec celui en plus
-    // issue: comment récup les infos précédentes pour les render ? session infos ?
+   $this->commentManager->createComment($comment);
+   $_SESSION['message'] = "le commentaire a bien été ajouté";
+   Header('Location: index.php?cible=post&id='.$postId);
   }  
     
     public function acceptComment($id) {
@@ -40,19 +40,15 @@ class  CommentController extends Controller {
     
   public function deleteComment($id) { 
     $this->commentManager->deleteComment($id);
-      
-    // render view twig même que avant click sup mais sans le post en question 
-    // issue : comment recup donnees utilisees dans le twig precedent ? session infos ?
+    $_SESSION['message'] = "le commentaire a bien été supprimé";
   }    
     
   public function getComment($id) { 
     $this->commentManager->getComment($id);
-    // render view twig avec tableau constitué des valeurs setters de getPost
   }   
     
   public function getListComments($post_id) { 
     $this->commentManager->getListComments($_post_id);
-    // twig en utilsiant tableau d'objets post
   } 
     
     public function signalComment($id) {

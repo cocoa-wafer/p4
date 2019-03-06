@@ -34,6 +34,31 @@ class  AdminController extends Controller {
     }
     
     public function accueilBo() {
+
+
+        switch ($_GET['cible']) {
+            case 'connexion':
+            $_SESSION['logged'] = true;
+            break;
+            case 'updating':
+            $this->postManager->updatePost($_POST['post'],$_POST['author'],$_POST['titre'],$_GET['id']);
+            break;
+
+            case 'accepter' : 
+            $this->commentManager->acceptComment($_GET['comment']); 
+            break;
+    
+            case 'supprimer' :
+                if (isset($_GET['post'])){
+                    $_SESSION['message'] = "l'article a bien été supprimé"; 
+                    $this->postManager->deletePost($_GET['post']);
+                }  else if (isset($_GET['comment'])) {
+                    $_SESSION['message'] = "le commentaire a bien été supprimé"; 
+                    $this->commentManager->deleteComment($_GET['comment']); 
+                } 
+            break;
+        }
+
         return $this->twig->render('Admin/accueil_bo.twig',array(
             "posts" => $this->postManager->getPostsList(),
             "comments" => $this->commentManager->getSignaledComments()

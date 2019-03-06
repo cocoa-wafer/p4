@@ -2,7 +2,7 @@
   <h2> EDITER CE POST</h2>
 {%if post%}
 
-  <form method="post" action="?cible=updating&id={{post.id}}">
+  <form method="post" action="?cible=post&id={{post.id}}&action=update">
 
     <div class="md-form">
       <input type="text" id="form1" class="form-control" value="{{post.author}}" name="author" required>

@@ -1,4 +1,6 @@
 <?php 
+//todo ce soir : gérer les messages plus suppressioon de ceux ci
+//todo, quand connexion, pas message tout de suite, gérer çà aussi, tout décalé
 
 namespace Blog;
 
@@ -21,10 +23,10 @@ switch ($cible) {
     case 'logged':
         $_SESSION=[];
         session_destroy();
-        header("Location: index.php");
+        Header('Location:index.php');
         break;
         
-    case 'creer' :
+    case 'creer' : //todo checker si les echo restent nécessaires
         echo $post-> creerPost();
         break;
         
@@ -34,70 +36,48 @@ switch ($cible) {
 
     case 'updating':
         $post->updatingPost($_POST['post'],$_POST['author'],$_POST['titre'],$_GET['id']);
-        echo $admin->accueilBo();
         break;
 
     case 'creation':
         $post->addPost($_POST['author'],$_POST['post'],$_POST['titre']);
-        $_SESSION['message'] = "ajout réussi";
-        echo $admin->accueilBo();
         break;
 
     case 'liste' : 
         echo $post->getPostsList();
         break;
 
-    case 'post' : 
-        if (isset ($_POST['author'])) {
-            $comment->addComment($_POST['author'],$_POST['comment'],$_GET['id'], $_GET['arborescence'],$_GET['comment_parent']);
-        }   
-
-        if (isset ($_GET['signaler'])) {
-            $comment->signalComment($_GET['comment']);
+    case 'comment' :
+        if (isset($_POST['author'])) {
+            $comment->addComment($_POST['author'], $_POST['comment'], $_GET['id'], $_GET['arborescence'], $_GET['comment_parent']);
         }
-        echo $post->getPost(htmlspecialchars($_GET['id']));
-        
+        break;
+
+    case 'post' :
+        if (isset($_GET['action'])) {
+            $post->updatingPost($_POST['post'],$_POST['author'],$_POST['titre'],$_GET['id']);
+            header('Location:index.php?cible=connexion');
+        } else {
+            echo $post->getPost(htmlspecialchars($_GET['id']));
+        }
         break;
         
-    case 'connexion' : 
-
-        if (isset($_POST['login']) && htmlspecialchars($_POST['login']) == $aConnexion['login'] && isset($_POST['password']) && htmlspecialchars($_POST['password']) === $aConnexion['password']) {
-            $_SESSION['logged'] = true;
+    case 'connexion' :
+        if (isset($_POST['login']) && htmlspecialchars($_POST['login']) == $aConnexion['login'] && isset($_POST['password']) && htmlspecialchars($_POST['password']) == $aConnexion['password']) {
             echo $admin->accueilBo();
         }
         else if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
-
-            if (isset($_POST['post'])) {
-                $post->addPost($_POST['author'], $_POST['post'], $_POST['titre']);
-
-            }
             echo $admin->accueilBo();
-
         }  
         else if (isset($_POST['update'])) {
             $post->updatePost();
         } 
-
         else {
-            echo $admin->connexion(); 
+            echo $admin->connexion();
         }
         break;
 
     case 'supprimer':
-        if (isset($_GET['post'])){
-            $post->deletePost($_GET['post']);
-            echo $admin->accueilBo();
-
-        }  else if (isset($_GET['comment'])) {
-            $comment->deleteComment($_GET['comment']); 
-            echo $admin->accueilBo();
-        } else {
-            echo $admin->accueilBo();
-        }
-        break;
-        
     case 'accepter':
-        $comment->acceptComment($_GET['comment']); 
         echo $admin->accueilBo();
         break;
     
