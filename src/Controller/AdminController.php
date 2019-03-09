@@ -16,7 +16,6 @@ class  AdminController extends Controller {
     
     function __construct() {
         
-        //récup constructeur parent pour twig puis execute code en dessous sans écraser le twig du coup.
         parent::__construct(); 
 
         $this->adminManager = new AdminManager();
@@ -24,7 +23,7 @@ class  AdminController extends Controller {
         $this->commentManager = new CommentManager();
 
     }
-    
+   //todo : penser  crypter les mots de passe, et les modifier en bdd  
   public function getAdmin() { 
      return   $this->adminManager->getAdmin();
   }  
@@ -32,33 +31,14 @@ class  AdminController extends Controller {
     public function connexion() {
         return $this->twig->render('Admin/connexion.twig');
     }
+
+    public function deconnexion() {
+        $_SESSION=[];
+        session_destroy();
+        header('Location: index.php');
+    }
     
     public function accueilBo() {
-
-
-        switch ($_GET['cible']) {
-            case 'connexion':
-            $_SESSION['logged'] = true;
-            break;
-            case 'updating':
-            $this->postManager->updatePost($_POST['post'],$_POST['author'],$_POST['titre'],$_GET['id']);
-            break;
-
-            case 'accepter' : 
-            $this->commentManager->acceptComment($_GET['comment']); 
-            break;
-    
-            case 'supprimer' :
-                if (isset($_GET['post'])){
-                    $_SESSION['message'] = "l'article a bien été supprimé"; 
-                    $this->postManager->deletePost($_GET['post']);
-                }  else if (isset($_GET['comment'])) {
-                    $_SESSION['message'] = "le commentaire a bien été supprimé"; 
-                    $this->commentManager->deleteComment($_GET['comment']); 
-                } 
-            break;
-        }
-
         return $this->twig->render('Admin/accueil_bo.twig',array(
             "posts" => $this->postManager->getPostsList(),
             "comments" => $this->commentManager->getSignaledComments()
@@ -66,6 +46,10 @@ class  AdminController extends Controller {
         ));
     }
 
+    public function isLogged() {
+        $_SESSION['logged'] = true;
+        header('Location: index.php?cible=connexion');
+    }
 
     public function acceptComment($id) {
        return $this->commentManager->acceptComment($id);

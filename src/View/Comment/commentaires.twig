@@ -6,7 +6,6 @@
                 <hr/>
 				<ul class="comments">
                 {% for comment in comments %}
-                <!-- voir ce qui s'affiche ou pas pb avec postid,date, comment parent et moderation  todo-->
 				<li class="clearfix">
 				  <div class="post-comments {{comment.arborescence}}">
 				      <p class="meta">{{comment.comment_date}} {{comment.author}} a dit : <i class="pull-right"><a href="?cible=post&id={{post.id}}&signaler=true&comment={{comment.id}}"><small>Signaler ce commentaire</small></a></i></p>

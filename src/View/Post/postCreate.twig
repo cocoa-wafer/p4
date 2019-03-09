@@ -1,6 +1,6 @@
 <div class="container">
   <h2> EDITER CE POST</h2>
-{%if post%}
+{% if post %}
 
   <form method="post" action="?cible=post&id={{post.id}}&action=update">
 
@@ -19,27 +19,22 @@
 
   </form>
 
-{%else %}
+{% else %}
 <div class="container">
   <h2> EDITER CE POST</h2>
   <form method="post" action="?cible=creation">
-
     <div class="md-form">
       <input type="text" id="form1" class="form-control" placeholder="nom de l'auteur" name="author" required>
       <label for="form1"></label>
     </div>
-
     <div class="md-form">
       <input type="text" id="form1" class="form-control" placeholder="titre du chapitre" name="titre" required>
       <label for="form1"></label>
     </div>
-
     <textarea id="post" name="post"></textarea>
     <input class="btn btn-primary btn-block" type="submit" value="ajouter ce chapitre"/>   
-
   </form>
-  {%endif%}
-
+{% endif %}
 </div>
 
 

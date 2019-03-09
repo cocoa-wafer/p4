@@ -1,11 +1,9 @@
-{%extends 'Layout/layout.twig'%}
+{% extends 'Layout/layout.twig' %}
 
-{%block title%} 
+{% block title %} 
 Les chapitres
-{%endblock%}
+{% endblock %}
 
-{%block body%} 
-
-    {% include 'Post/posts.twig'%}
-          
-{%endblock%}
+{% block body %} 
+{% include 'Post/posts.twig'%}
+{% endblock %}
