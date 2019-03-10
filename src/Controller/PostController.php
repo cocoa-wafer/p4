@@ -42,10 +42,8 @@ class  PostController extends Controller {
     header("Location: index.php?cible=connexion");
 
   }    
+
     public function getPost($id) {
-    if (isset ($_GET['signaler'])) {
-        $this->commentManager->signalComment($_GET['comment']);
-    }
     return $this->twig->render('Post/postview.twig',
       array(
           'post' =>  $this->postManager->getPost($id),

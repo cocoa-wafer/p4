@@ -18,14 +18,6 @@ $cible = isset ($_GET['cible']) ? htmlspecialchars($_GET['cible']) : '' ;
 
 $aConnexion = $admin->getAdmin();
 
-// pendant soutenance préciser que pbs avec codacy mais pas de pbs de code pr autant. 
-//try/catch 
-// styliser séconnexion ainsi que message bien ajouté, supprimé etc. 
-// générer du faux texte 
-// si temps restant, modifier les url pour que plus clair 
-// regarder quand même pour le singleton 
- 
-
 switch ($cible) {
     // deconnexion
     case 'logged':
@@ -87,6 +79,9 @@ switch ($cible) {
         }  else if (isset($_GET['comment'])) {
             $comment->deleteComment($_GET['comment']); 
         } 
+        break;
+    case 'signaler' : 
+        $comment->signalComment($_GET['comment']);
         break;
     // page d'accueil par défaut
     default :  

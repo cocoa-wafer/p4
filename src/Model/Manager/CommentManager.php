@@ -26,12 +26,6 @@ class CommentManager extends Manager {
     $array =(array('id'=>$id));
     return $this->get('SELECT * FROM comments WHERE id=:id',$array,'Comment'); 
   }  
-
-  //warning ; est ce utilisé quelque part ? 
-  public function commentParent($comment_parent) {
-    $array =(array('comment_parent'=>$comment_parent));
-    return $this->get('SELECT * FROM comments WHERE comment_parent=:comment_parent',$array,'Comment');
-  }
     
   public function getListComments($post_id) { 
     $array =(array('post_id'=>$post_id));

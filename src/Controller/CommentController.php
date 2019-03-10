@@ -53,11 +53,7 @@ class  CommentController extends Controller {
     
     public function signalComment($id) {  
         $this->commentManager->signalComment($id);
-    }
-
-    // warning; est ce utilisé quelque part ?
-    public function commentParent($comment_parent) {
-      return $this->commentManager->getCommentWithParent($comment_parent);
+        header('Location: index.php?cible=post&id='.$_GET['id']);
     }
       
 }
