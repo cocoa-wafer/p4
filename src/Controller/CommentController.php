@@ -29,6 +29,7 @@ class  CommentController extends Controller {
     
     $this->commentManager->createComment($comment);
     $_SESSION['message'] = "le commentaire a bien été ajouté";
+    $_SESSION['message_affiche'] = 1;
     header('Location: index.php?cible=post&id='.$postId);
   }  
     
@@ -40,6 +41,7 @@ class  CommentController extends Controller {
   public function deleteComment($id) { 
     $this->commentManager->deleteComment($id);
     $_SESSION['message'] = "le commentaire a bien été supprimé";
+    $_SESSION['message_affiche'] = 1;
     header('Location: index.php?cible=connexion');
   }    
     

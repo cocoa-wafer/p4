@@ -19,7 +19,7 @@ Un billet pour l'Alaska
               {{accueil[0].post|length > 50 ? accueil[0].post|striptags|slice(0, 50) ~ '...' :accueil[0].post}}
             </p>
           </a>
-          <p class="post-meta">Posté par {{accueil[0].author}}, le {{accueil[0].date}}</p>
+          <p class="post-meta">Posté par {{accueil[0].author}}, le {{ accueil[0].post_date|date("m/d/Y") }}</p>
       </div>
 </div>
 
@@ -34,7 +34,7 @@ Un billet pour l'Alaska
               {{accueil[1].post|length > 50 ? accueil[1].post|striptags|slice(0, 50) ~ '...' :accueil[1].post}}
             </p>
           </a>
-          <p class="post-meta">Posté par {{accueil[1].author}}, le {{accueil[1].date}}</p>
+          <p class="post-meta">Posté par {{accueil[1].author}}, le {{ accueil[1].post_date|date("m/d/Y") }}</p>
       </div>
 </div>
  </div>

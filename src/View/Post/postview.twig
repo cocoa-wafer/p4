@@ -7,8 +7,7 @@
 {% block body %} 
 {% include 'Post/post.twig' %}
 {% include 'Comment/commenter.twig' %}
-{% if _session['message']%}
-    <p>{{ _session['message'] }}</p>
-{% endif %}
+
+
 {% include 'Comment/commentaires.twig' %}     
 {% endblock %}

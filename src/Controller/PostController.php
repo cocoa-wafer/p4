@@ -31,7 +31,9 @@ class  PostController extends Controller {
         'titre' => $titre
     ]);
     $this->postManager->addPost($post);
+     
     $_SESSION['message'] = "l'article a bien été ajouté";
+    $_SESSION['message_affiche'] = 1;
     header("Location: index.php?cible=connexion");
 
   }  
@@ -39,6 +41,7 @@ class  PostController extends Controller {
   public function deletePost($id) {
     $this->postManager->deletePost($id);
     $_SESSION['message'] = "l'article a bien été supprimé"; 
+    $_SESSION['message_affiche'] = 1;
     header("Location: index.php?cible=connexion");
 
   }    

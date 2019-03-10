@@ -14,7 +14,7 @@
               {{ item.post|length > 50 ? item.post|striptags|slice(0, 50) ~ '...' : item.post}}
             </p>
           </a>
-          <p class="post-meta">Posté par {{ item.author }}, le {{ item.date }}</p>
+          <p class="post-meta">Posté par {{ item.author }}, le {{ item.post_date|date("m/d/Y") }}</p>
       </div>
      </div>
         <hr>

@@ -2,8 +2,7 @@
 {%block body%}
 
  {% if _session['message'] %}
-<p class="alert alert-dismissible alert-success">{{_session['message']}}</p>
-
+<p class="alert alert-dismissible alert-success">{{_session['message']}} </p>
  {% endif %}
 
   {% if _session['logged'] == true %}

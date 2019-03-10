@@ -39,6 +39,10 @@ class  AdminController extends Controller {
     }
     
     public function accueilBo() {
+        if ($_SESSION['message_affiche']) {
+            unset($_SESSION['message']);
+            $_SESSION['message_affiche'] = 0;
+          } 
         return $this->twig->render('Admin/accueil_bo.twig',array(
             "posts" => $this->postManager->getPostsList(),
             "comments" => $this->commentManager->getSignaledComments()
