@@ -9,12 +9,10 @@ class CommentManager extends Manager {
   public function createComment($comment) { 
     $array =(array('post_id' => $comment->getPostId(),
                    'author'=>$comment->getAuthor(),
-                   'comment' => $comment->getComment(),
-                   'arborescence' => $comment->getArborescence(),
-                   'comment_parent' => $comment->getCommentParent()
+                   'comment' => $comment->getComment()
                   )); 
       
-    return $this->insert('INSERT INTO comments(post_id, author,comment,comment_date,arborescence,comment_parent) VALUES(:post_id,:author,:comment,NOW(),:arborescence,:comment_parent)',$array);
+    return $this->insert('INSERT INTO comments(post_id, author,comment,comment_date) VALUES(:post_id,:author,:comment,NOW())',$array);
   }    
     
   public function deleteComment($id) {

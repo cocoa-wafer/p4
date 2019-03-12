@@ -42,7 +42,7 @@ switch ($cible) {
     //add comment en bdd et affiche
     case 'comment' :
         if (isset($_POST['author'])) {
-            $comment->addComment($_POST['author'], $_POST['comment'], $_GET['id'], $_GET['arborescence'], $_GET['comment_parent']);
+            $comment->addComment($_POST['author'], $_POST['comment'], $_GET['id']);
         }
         break;
     // commentaire accepté

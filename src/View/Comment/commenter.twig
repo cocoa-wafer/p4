@@ -1,10 +1,13 @@
-<div class="comment"><h5> Ajouter un commentaire </h5>
+{% if _session['message'] %}
+<p class="alert alert-dismissible alert-success">{{_session['message']}} </p>
+ {% endif %}
 
-<form method="post" action="?cible=comment&id={{post.id}}&arborescence=1&comment_parent=1">
-    <p><input type="text" name="author" placeholder="Pseudo"/>
-    <input type="text" placeholder="Votre commentaire..." name="comment"/>
-    <input type="submit" value="commenter"/></p>
+<div class="comment container bootstrap snippet"><h5> Ajouter un commentaire </h5>
+
+<form class="text-center border border-light p-5" method="post" action="?cible=comment&id={{post.id}}">
+    <input class="form-control" type="text" name="author" placeholder="Pseudo"/>
+    <textarea class="form-control" cols="50" rows="4" type="text" name="comment"/>Votre commentaire...</textarea>
+    <input class="envoyer" type="submit" value="commenter"/>
 </form>
 
-<hr>
 </div>

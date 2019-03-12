@@ -1,7 +1,6 @@
 <?php 
 namespace Blog\Controller;
 
-//todo : regarder arborescence car sinon comment_parent est inutile. 
 use Blog\Model\Manager\CommentManager ;
 use Blog\Model\Entity\Comment ;
 use Blog\Controller\Controller ;
@@ -16,17 +15,14 @@ class  CommentController extends Controller {
       $this->commentManager = new CommentManager();
     }
     
-    public function addComment($author,$comment, $postId,$arborescence,$comment_parent) { 
+    public function addComment($author,$comment, $postId) { 
         
       $comment = new Comment([
           'author' => $author,
           'comment' => $comment,
-          'postId' => $postId,
-          'arborescence' => $arborescence,
-          'comment_parent' => $comment_parent
-
+          'postId' => $postId
       ]);
-    
+
     $this->commentManager->createComment($comment);
     $_SESSION['message'] = "le commentaire a bien été ajouté";
     $_SESSION['message_affiche'] = 1;
@@ -55,6 +51,8 @@ class  CommentController extends Controller {
     
     public function signalComment($id) {  
         $this->commentManager->signalComment($id);
+        $_SESSION['message'] = "le commentaire a bien été signalé";
+        $_SESSION['message_affiche'] = 1;
         header('Location: index.php?cible=post&id='.$_GET['id']);
     }
       

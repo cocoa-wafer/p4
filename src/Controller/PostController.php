@@ -47,13 +47,18 @@ class  PostController extends Controller {
   }    
 
     public function getPost($id) {
-    return $this->twig->render('Post/postview.twig',
-      array(
-          'post' =>  $this->postManager->getPost($id),
-          'comments' => $this->commentManager->getListComments($id)
-      ));
+      if ($_SESSION['message_affiche']) {
+        unset($_SESSION['message']);
+        $_SESSION['message_affiche'] = 0;
+      } 
 
-    }
+      return $this->twig->render('Post/postview.twig',
+        array(
+            'post' =>  $this->postManager->getPost($id),
+            'comments' => $this->commentManager->getListComments($id)
+       ));
+
+     }
     
     public function getPostsList() {
         return $this->twig->render('Post/postslist.twig',array(

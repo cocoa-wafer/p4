@@ -418,13 +418,14 @@ footer .copyright {
 
 /*ajout css*/
 
-input {
+.envoyer  {
   border: 2px solid darkgrey;
-  border-radius: 40px;
+  border-radius: 10px;
   height: 40px;
   padding: 0 11px;
   font-size: 14px;
 }
+
 
 hr {
   margin-top: 20px;

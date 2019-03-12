@@ -11,7 +11,7 @@
               {{item.title}}
             </p>
             <p class="post-subtitle">
-              {{ item.post|length > 50 ? item.post|striptags|slice(0, 50) ~ '...' : item.post}}
+              {{ item.post|truncate(50)|raw}}
             </p>
           </a>
           <p class="post-meta">Posté par {{ item.author }}, le {{ item.post_date|date("m/d/Y") }}</p>

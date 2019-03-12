@@ -9,8 +9,6 @@ class Comment {
     private $author;
     private $comment;
     private $comment_date;
-    private $arborescence;
-    private $comment_parent;
     
     function __construct(array $donnees) {
         $this->hydrate($donnees);
@@ -61,21 +59,12 @@ class Comment {
         $this->comment_date=$date;
     }
 
-    function setArborescence($arborescence) {
-        $this->arborescence=$arborescence;
-    }
-
-    function setComment_parent($comment_parent) {
-        $this->comment_parent=$comment_parent;
-    }
     
     function getId() { return $this->id;}
     function getPostId() { return $this->postId;}
     function getAuthor() { return $this->author;}
     function getComment() { return $this->comment;}
-    function getCommentdate() { return $this->comment_date;}  
-    function getArborescence() { return $this->arborescence;}   
-    function getCommentParent() { return $this->comment_parent;} 
+    function getCommentdate() { return $this->comment_date;}   
     function getAttenteModeration() { return $this->attente_moderation;}  
     
 }
