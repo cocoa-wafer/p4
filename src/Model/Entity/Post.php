@@ -2,7 +2,9 @@
 
 namespace Blog\Model\Entity;
 
-class Post {
+use Blog\Model\Entity\Entity;
+
+class Post extends Entity {
     
     private $id;
     private $author;
@@ -10,22 +12,6 @@ class Post {
     private $post_date;
     private $img;
     private $titre;
-    
-    function __construct(array $donnees) {
-        try{        $this->hydrate($donnees);}
-        catch (Exception $e) {'impossible de créer lobjet';}
-        
-    }
-    
-    function hydrate(array $donnees) {
-        foreach ($donnees as $key => $value) {
-            $method = 'set'.ucfirst($key);  
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-        
-    }
     
     function setId($id) {
         $id = (int)$id;
