@@ -2,24 +2,13 @@
 
 namespace Blog\Model\Entity;
 
-class Admin {
+use Blog\Model\Entity\Entity;
+
+class Admin extends Entity {
     
     private $id;
     private $login;
     private $password;
-    
-    function __construct(array $donnees) {
-        $this->hydrate($donnees);
-    }
-    
-    function hydrate(array $donnees) {
-        foreach ($donnees as $key => $value) {
-            $method = 'set'.ucfirst($key);  
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
     
     function setId($id) {
         $id = (int)$id;
