@@ -1,7 +1,9 @@
 <?php 
 namespace Blog\Model\Entity;
 
-class Comment {
+use Blog\Model\Entity\Entity;
+
+class Comment extends Entity {
     
     private $id;
     private $attente_moderation;
@@ -9,21 +11,6 @@ class Comment {
     private $author;
     private $comment;
     private $comment_date;
-    
-    function __construct(array $donnees) {
-        $this->hydrate($donnees);
-        
-    }
-    
-    function hydrate(array $donnees) {
-        foreach ($donnees as $key => $value) {
-            $method = 'set'.ucfirst($key);  
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-        
-    }
     
     function setId($id) {
         $id = (int)$id;
