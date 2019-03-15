@@ -1,0 +1,2 @@
+# p4
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e9e45990b054846877d41a4b3de630d)](https://app.codacy.com/app/cocoa-wafer/p4?utm_source=github.com&utm_medium=referral&utm_content=cocoa-wafer/p4&utm_campaign=Badge_Grade_Settings)
