@@ -21,7 +21,11 @@ class  PostController extends Controller {
     }
     
     public function creerPost() {
-         return $this->twig->render('Post/postAdd.twig');
+        if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+            return $this->twig->render('Post/postAdd.twig');
+        } else {
+            header("Location: index.php");
+        }
     }
 
   public function addPost($author,$post,$titre) { 
@@ -30,19 +34,26 @@ class  PostController extends Controller {
         'post' => $post,
         'titre' => $titre
     ]);
-    $this->postManager->addPost($post);
-     
-    $_SESSION['message'] = "l'article a bien été ajouté";
-    $_SESSION['message_affiche'] = 1;
-    header("Location: index.php?cible=connexion");
+      if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+        $this->postManager->addPost($post);
+        $_SESSION['message'] = "l'article a bien été ajouté";
+        $_SESSION['message_affiche'] = 1;
+        header("Location: index.php?cible=connexion");
+      } else {
+          header('Location: index.php');
+      }
 
   }  
 
   public function deletePost($id) {
-    $this->postManager->deletePost($id);
-    $_SESSION['message'] = "l'article a bien été supprimé"; 
-    $_SESSION['message_affiche'] = 1;
-    header("Location: index.php?cible=connexion");
+      if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+          $this->postManager->deletePost($id);
+          $_SESSION['message'] = "l'article a bien été supprimé"; 
+          $_SESSION['message_affiche'] = 1;
+          header("Location: index.php?cible=connexion");
+      } else {
+          header("Location: index.php"); 
+      }
 
   }    
 
@@ -67,9 +78,13 @@ class  PostController extends Controller {
     }
 
   public function updatePost($id) { 
+    if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
       return $this->twig->render('Post/postAdd.twig', array(
             "post" => $this->postManager->getPost($id)
-      ));
+      )); }
+      else {
+          header("Location: index.php"); 
+      }
   }  
     
     public function updatingPost($id,$post,$author,$titre) {
