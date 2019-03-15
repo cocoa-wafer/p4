@@ -2,7 +2,7 @@
 
 namespace Blog\Model\Manager;
 
-use Blog\Model\Entity\Manager;
+use Blog\Model\Manager\Manager;
 
 class PostManager extends Manager {
     
