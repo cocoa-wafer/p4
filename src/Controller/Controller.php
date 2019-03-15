@@ -31,4 +31,4 @@ use \Twig_Extensions_Extension_Text;
         $this->twig->addGlobal("_get",$_GET);
      } 
 
-}
+} 
