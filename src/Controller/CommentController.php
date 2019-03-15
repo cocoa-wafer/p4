@@ -30,15 +30,23 @@ class  CommentController extends Controller {
   }  
     
   public function acceptComment($id) {
-    $this->commentManager->acceptComment($id);
-    header('Location: index.php?cible=connexion');
+      if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+        $this->commentManager->acceptComment($id);
+        header('Location: index.php?cible=connexion');
+      } else {
+          header('Location: index.php');
+      }
   }
     
   public function deleteComment($id) { 
-    $this->commentManager->deleteComment($id);
-    $_SESSION['message'] = "le commentaire a bien été supprimé";
-    $_SESSION['message_affiche'] = 1;
-    header('Location: index.php?cible=connexion');
+      if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+          $this->commentManager->deleteComment($id);
+          $_SESSION['message'] = "le commentaire a bien été supprimé";
+          $_SESSION['message_affiche'] = 1;
+          header('Location: index.php?cible=connexion');
+      } else {
+          header('Location: index.php');
+      }
   }    
     
   public function getComment($id) { 
