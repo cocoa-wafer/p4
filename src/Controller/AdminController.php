@@ -72,4 +72,8 @@ class  AdminController extends Controller {
         ));
     } 
     
+public function mentionsLegales() {
+    return $this->twig->render('Admin/mentions.twig');
+}
+    
 }
