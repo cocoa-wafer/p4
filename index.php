@@ -42,7 +42,7 @@ switch ($cible) {
     //add comment en bdd et affiche
     case 'comment' :
         if (isset($_POST['author'])) {
-            $comment->addComment($_POST['author'], $_POST['comment'], $_GET['id']);
+            $comment->addComment($_POST['author'], $_POST['comment'], $_GET['id'], $_GET['arborescence'], $_GET['comment_parent']);
         }
         break;
     // commentaire accepté
@@ -82,6 +82,10 @@ switch ($cible) {
         break;
     case 'signaler' : 
         $comment->signalComment($_GET['comment']);
+        break;
+        
+    case 'mentions':
+        $admin->mentionsLegales();
         break;
     // page d'accueil par défaut
     default :  
