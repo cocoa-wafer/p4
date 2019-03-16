@@ -1,5 +1,4 @@
 <?php 
-//todo : gérer les messages plus suppressioon de ceux ci
 
 namespace Blog;
 
