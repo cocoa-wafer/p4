@@ -85,7 +85,7 @@ switch ($cible) {
         break;
         
     case 'mentions':
-        $admin->mentionsLegales();
+       echo $admin->mentionsLegales();
         break;
     // page d'accueil par défaut
     default :  
