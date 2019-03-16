@@ -1,0 +1,13 @@
+{% if _session['message'] %}
+<p class="alert alert-dismissible alert-success">{{_session['message']}} </p>
+ {% endif %}
+
+<div class="comment container bootstrap snippet"><h5> Ajouter un commentaire </h5>
+
+<form class="text-center border border-light p-5" method="post" action="?cible=comment&id={{post.id}}">
+    <input class="form-control" type="text" name="author" placeholder="Pseudo"/>
+    <textarea class="form-control" cols="50" rows="4" type="text" name="comment"/>Votre commentaire...</textarea>
+    <input class="envoyer" type="submit" value="commenter"/>
+</form>
+
+</div>

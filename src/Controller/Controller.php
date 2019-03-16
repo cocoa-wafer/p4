@@ -2,25 +2,31 @@
 
 namespace Blog\Controller;
 
-
-use Blog\Model\CommentManager ;
-use Blog\Model\PostManager ;
-use Blog\Model\AdminManager;
-
+use Twig_Environment;
+use Twig_Loader_Filesystem;
+use Twig_Extension_Debug;
+use \Twig_Extensions_Extension_Text;
+    
  class Controller {
-    
-//déclarer twig pour réutiliser partout ailleurs
-    
-    protected $postManager;
-    protected $commentManager;
-    protected $adminManager;
+     
+     protected $twig;
+     
+     
+     public function __construct() {
+         
+         $this->twig = new Twig_Environment(
+             new Twig_Loader_Filesystem(array('./src/View')), 
+             array( 
+                'cache' => false, 
+                'debug' => true, 
+            ) 
+         );
+         
+        $this->twig->addExtension(new Twig_Extension_Debug());  
+        $this->twig->addExtension(new \Twig_Extensions_Extension_Text());
+        $this->twig->addGlobal("_session",$_SESSION);
+        $this->twig->addGlobal("_post",$_POST);
+        $this->twig->addGlobal("_get",$_GET);
+     } 
 
-    function __construct() {
-        
-        $this->postManager = new PostManager();
-        $this->commentManager = new CommentManager();
-        $this->adminManager = new AdminManager();
-    }
-    
-    
-}
+} 

@@ -1,0 +1,13 @@
+{% extends 'Layout/layout.twig' %}  
+
+{% block title %} 
+{{ post.title }}
+{% endblock %}
+
+{% block body %} 
+{% include 'Post/post.twig' %}
+{% include 'Comment/commenter.twig' %}
+
+
+{% include 'Comment/commentaires.twig' %}     
+{% endblock %}

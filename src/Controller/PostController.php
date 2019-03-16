@@ -1,53 +1,95 @@
 <?php 
 
-//penser aux test vérification try / catch / throw exception pour vérif validité paramètres. 
-// rempalcer require par nametags
-// 1 branch pour twig 
-
 namespace Blog\Controller;
 
-/* require_once 'PostManager.php';
-require_once '../Model/Post.php';
-require_once 'Controller.php'; */
-
-use Blog\Model\Post;
-use Blog\Model\PostManager;
+use Blog\Model\Entity\Post;
+use Blog\Model\Manager\PostManager;
+use Blog\Model\Manager\CommentManager;
 use Blog\Controller\Controller;
 
 class  PostController extends Controller {
     
-  public function addPost($author,$post) { 
+    protected $postManager;
+    protected $commentManager;
+    
+    function __construct() {
+
+        parent::__construct(); 
+
+        $this->postManager = new PostManager();
+        $this->commentManager = new CommentManager();
+    }
+    
+    public function creerPost() {
+        if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+            return $this->twig->render('Post/postAdd.twig');
+        } else {
+            header("Location: index.php");
+        }
+    }
+
+  public function addPost($author,$post,$titre) { 
     $post = new Post([
         'author' => $author,
-        'post' => $post
+        'post' => $post,
+        'titre' => $titre
     ]);
-      
+      if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+        $this->postManager->addPost($post);
+        $_SESSION['message'] = "l'article a bien été ajouté";
+        $_SESSION['message_affiche'] = 1;
+        header("Location: index.php?cible=connexion");
+      } else {
+          header('Location: index.php');
+      }
 
-    $this->postManager->addPost($post);
-    // render twig ici render view avant ajout mais avec celui en plus
-    // issue: comment récup les infos précédentes pour les render ? session infos ?
+  }  
+
+  public function deletePost($id) {
+      if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+          $this->postManager->deletePost($id);
+          $_SESSION['message'] = "l'article a bien été supprimé"; 
+          $_SESSION['message_affiche'] = 1;
+          header("Location: index.php?cible=connexion");
+      } else {
+          header("Location: index.php"); 
+      }
+
   }    
-  public function deletePost($id) { 
 
-    $this->postManager->deletePost($id);
-      
-    // render view twig même que avant click sup mais sans le post en question 
-    // issue : comment recup donnees utilisees dans le twig precedent ? session infos ?
-  }    
-  public function getPost($id) { 
+    public function getPost($id) {
+      if ($_SESSION['message_affiche']) {
+        unset($_SESSION['message']);
+        $_SESSION['message_affiche'] = 0;
+      } 
 
-    $this->postManager->getPost($id);
-    // render view twig avec tableau constitué des valeurs setters de getPost
-  }    
-  public function getPostsList() { 
+      return $this->twig->render('Post/postview.twig',
+        array(
+            'post' =>  $this->postManager->getPost($id),
+            'comments' => $this->commentManager->getListComments($id)
+       ));
 
-    $this->postManager->getPostsList();
-    // twig en utilsiant tableau d'objets post
-  }    
-  public function updatePost($id, $post) { 
+     }
+    
+    public function getPostsList() {
+        return $this->twig->render('Post/postslist.twig',array(
+            'liste' =>  $this->postManager->getPostsList()
+        ));
+    }
 
-    $this->postManager->updatePost($id,$post);
-    // rendr view du post modifié, en réutilisant l'id envoyée en paramètres.
-  }       
+  public function updatePost($id) { 
+    if (isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+      return $this->twig->render('Post/postAdd.twig', array(
+            "post" => $this->postManager->getPost($id)
+      )); }
+      else {
+          header("Location: index.php"); 
+      }
+  }  
+    
+    public function updatingPost($id,$post,$author,$titre) {
+      $this->postManager->updatePost($id,$post,$author,$titre);
+      header ('Location: index.php?cible=connexion');
+    }
     
 }

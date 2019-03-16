@@ -1,0 +1,86 @@
+{%extends 'Layout/layout.twig'%}
+{%block body%}
+
+ {% if _session['message'] %}
+<p class="alert alert-dismissible alert-success">{{_session['message']}} </p>
+ {% endif %}
+
+  {% if _session['logged'] == true %}
+<a href="?cible=logged" class="btn btn-danger">deconnexion</a>
+ {% endif %}
+
+<div class="container-fluid">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Les derniers chapitres
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Auteur</th>
+                    <th>Titre</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+{% for post in posts%}
+                  <tr>
+                    <td>{{post.author}}</td>
+                    <td>{{post.titre}} </td>
+                    <td><a href="?cible=modifier&post={{post.id}}">Modifier ce post</a></td>
+                    <td><a href="?cible=connexion&post={{post.id}}&cible=supprimer">Supprimer ce post</a></td>
+                  </tr>
+                  <tr>
+{% else %}
+
+{% endfor %}
+                </tbody>
+              </table>
+              <div class="alert alert-dismissible alert-secondary">
+                <strong>Beau travail !</strong> Continuez l'aventure et rédigez un nouveau chapitre <a href="?cible=creer" class="alert-link">en cliquant ici</a></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Les commentaires en attente de moderation
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Auteur</th>
+                    <th>Commentaire</th>
+                    <th>Accepter</th>
+                    <th>Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+{%for comment in comments%}
+                  <tr>
+                    <td>{{comment.author}}</td>
+                    <td>{{comment.comment}} </td>
+                    <td><a href="?cible=connexion&comment={{comment.id}}&cible=accepter">Accepter ce commentaire</a></td>
+                    <td><a href="?cible=connexion&comment={{comment.id}}&cible=supprimer">Supprimer ce commentaire</a></td>
+                  </tr>
+                  <tr>
+{%else%}
+                <tr>Pas de commentaires à modérer</tr>
+{%endfor%}
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%} 
